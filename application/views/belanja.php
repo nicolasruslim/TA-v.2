@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="navbar">
-		<ul>
+		<ul id="navigasi">
 			<li class="default">
     			Belanja
     			<ul class="belanja">
@@ -29,6 +29,139 @@
 		</ul>
 	</div>
 	<div id="container">
+  <?php 
+    switch ($tipe) {
+      case 'buah-sayur': ?>
+        <ul class="products">
+            <li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/Fresho - Apple - JK.jpg' ?>">
+                    <h4>Apple- JK</h4>
+                    <p>Rp 20.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li><li>
+                <a href="#">
+                    <img src="<?php echo base_url().'/assets/images/a.jpg'?>">
+                    <h4>Banana - Yelakki Semi Ripe (Grade A)</h4>
+                    <p>Rp 25.000</p>
+                </a>
+            </li>
+        </ul>
+  <?php break;
+      
+      default:
+        # code...
+        break;
+    }
+  ?>
 	</div>
 </body>
 </html>

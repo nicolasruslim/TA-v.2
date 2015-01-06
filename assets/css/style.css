@@ -2,7 +2,7 @@ body{
 	background-color: #bdc3c7;
 }
 
-.default{
+ul#navigasi li.default{
 	background-color: #f1c40f;
 	color: #E5E9FF;
 	font-size: 16px;
@@ -23,7 +23,7 @@ body{
 }
 
 
-ul {
+ul#navigasi {
   text-align: left;
   display: inline;
   margin: 0;
@@ -31,7 +31,7 @@ ul {
   list-style: none;
 }
 
-ul li {
+ul#navigasi li {
   font: 14px sans-serif;
   display: inline-block;
   margin-right: -4px;
@@ -45,17 +45,17 @@ ul li {
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-ul li:hover {
+ul#navigasi li:hover {
   background: #1CE366;
   color : #fff;
 }
 
-ul li a{
+ul#navigasi li a{
 	text-decoration: none;
 	color: #000;
 }
 
-ul li ul {
+ul#navigasi li ul {
   padding: 0;
   position: absolute;
   top: 48px;
@@ -73,27 +73,25 @@ ul li ul {
   -o-transition: opacity 0.2s;
   -transition: opacity 0.2s;
 }
-ul li ul li { 
+ul#navigasi li ul li { 
   background: #ecf0f1; 
   z-index: 100;
   display: block; 
   color: #fff;
   text-shadow: 0 -1px 0 #000;
 }
-ul li ul li:hover { background: #1CE366; color: #ffffff;}
+ul#navigasi li ul li:hover { background: #1CE366; color: #ffffff;}
 
-ul li ul li a{
+ul#navigasi li ul li a{
 	text-decoration: none;
 	color: #000;
 }
 
 .belanja{
-	display: block;
- 	opacity: 1;
-  	visibility: visible;
+	
 }
 
-ul li:hover ul {
+ul#navigasi li:hover ul {
   display: block;
   opacity: 1;
   visibility: visible;
@@ -102,7 +100,14 @@ ul li:hover ul {
 #container{
 	background-color: #ffffff;
 	width: 90%;
-	height: 100%;
-	position: fixed;
+	height: 1500px;
+	position: absolute;
 	margin-left: 5%;
+	margin-top: 35px;
+}
+
+ul.products li {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
 }
