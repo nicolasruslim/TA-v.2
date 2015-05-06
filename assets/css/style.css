@@ -87,8 +87,14 @@ ul#navigasi li ul li a{
 	color: #000;
 }
 
-.belanja{
-	
+.product-type{
+	color:black;
+	margin: 0px;
+}
+
+.recipe-type{
+  color:black;
+  margin: 0px;
 }
 
 ul#navigasi li:hover ul {
