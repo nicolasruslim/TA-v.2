@@ -22,12 +22,12 @@
         <li>
           Resep
           <ul class="resep">
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/seafood' ?>"><li><p class='product-type'>Seafood</p></li></a>
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/sup' ?>"><li><p class='product-type'>Sup</p></li></a>
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/ayam'?>"><li><p class='product-type'>Ayam</p></li></a>
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/daging'?>"><li><p class='product-type'>Daging</p></li></a>
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/dessert'?>"><li><p class='product-type'>Dessert</p></li></a>
-              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/minuman'?>"><li><p class='product-type'>Minuman</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/1' ?>"><li><p class='product-type'>Seafood</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/2' ?>"><li><p class='product-type'>Sup</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/3'?>"><li><p class='product-type'>Ayam</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/4'?>"><li><p class='product-type'>Daging</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/5'?>"><li><p class='product-type'>Dessert</p></li></a>
+              <a href="<?php echo base_url().'index.php/c_main/daftar_resep/6'?>"><li><p class='product-type'>Minuman</p></li></a>
           </ul>
         </li>
         <li><a href="">Cara Belanja</a></li>

@@ -51,7 +51,7 @@
             '6'    => 'Minuman',
             '7'    => 'Bacaan',
 		);
-		echo form_dropdown('product_type',$product_type_options);
+		echo form_dropdown('product_type_id',$product_type_options);
 	 ?></p>
 
 	<p>Product Size :
@@ -79,7 +79,7 @@
 	?></p>
 
 	 <p> <?php 
-	 	echo form_submit('tambah_produk', 'Tambah Produk!');
+	 	echo form_submit('tambah_produk', 'Add Product!');
 	 ?></p>
 </body>
 </html>

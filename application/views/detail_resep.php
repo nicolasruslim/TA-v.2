@@ -7,9 +7,9 @@
 <body>
 	<div id="navbar">
 		<ul id="navigasi">
-      <li class="default">
-          Belanja
-          <ul class="belanja">
+			<li class="default">
+    			Resep
+    			<ul class="belanja">
               <a href="<?php echo base_url().'index.php/c_main/belanja/1' ?>"><li><p class='product-type'>Buah</p></li></a>
               <a href="<?php echo base_url().'index.php/c_main/belanja/2' ?>"><li><p class='product-type'>Sayur dan Umbi</p></li></a>
               <a href="<?php echo base_url().'index.php/c_main/belanja/3'?>"><li><p class='product-type'>Daging</p></li></a>
@@ -18,8 +18,8 @@
               <a href="<?php echo base_url().'index.php/c_main/belanja/6'?>"><li><p class='product-type'>Minuman</p></li></a>
               <a href="<?php echo base_url().'index.php/c_main/belanja/7'?>"><li><p class='product-type'>Bacaan</p></li></a>
           </ul>
-        </li>
-        <li>
+  			</li>
+  			<li>
           Resep
           <ul class="resep">
               <a href="<?php echo base_url().'index.php/c_main/daftar_resep/1' ?>"><li><p class='product-type'>Seafood</p></li></a>
@@ -30,31 +30,25 @@
               <a href="<?php echo base_url().'index.php/c_main/daftar_resep/6'?>"><li><p class='product-type'>Minuman</p></li></a>
           </ul>
         </li>
-        <li><a href="">Cara Belanja</a></li>
-        <li><a href="">Tentang Kami</a></li>
-        <li><a href="">Kontak</a></li>
-    </ul>
+  			<li><a href="">Cara Belanja</a></li>
+  			<li><a href="">Tentang Kami</a></li>
+  			<li><a href="">Kontak</a></li>
+		</ul>
 	</div>
 	<div id="container">
-        <ul class="products">
-            <?php foreach($products as $product) { ?>
+        <img src="<?php echo base_url().'/assets/images/recipes/'.$recipe->recipe_image.'.jpg';?>">
+        <h4><?php echo $recipe->recipe_name;?></h4> 
+        <p><?php echo $recipe->recipe_description;?></p>
+        <p><?php echo $recipe->recipe_howto;?></p>
+        <ul>
+          <?php foreach($recipe_composition as $composition) { ?>
             <li>
-                <a href="#">
-                    <img src="<?php echo base_url().'/assets/images/'.$product->product_image.'.jpg';?>">
-                    <h4><?php echo $product->product_name;?></h4>
-                      <?php 
-                        $options = array();
-                        foreach($product_size_price as $psp) {
-                            if ($psp->product_id == $product->product_id){ 
-                                  $options[$psp->product_size] = $psp->product_size."&nbsp;".$psp->product_price ;
-                            }
-                          } 
-                        echo form_dropdown('size_price', $options);
-                      ?>
-                </a>
+              <p><?php echo $composition->recipe_composition_amount."&nbsp;".$composition->composition_name;?></p>
             </li>
-            <?php } ?>
+          <?php } ?>
         </ul>
+
+        <h3>Beli Bahan untuk Resep Ini</h3>
 	</div>
 </body>
 </html>
