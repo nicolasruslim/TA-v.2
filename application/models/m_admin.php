@@ -1,6 +1,7 @@
 <?php
 class M_admin extends CI_Model{
 	
+<<<<<<< HEAD
 	function login($username, $password)
 	{
 	   $this -> db -> select('admin_id, admin_username, admin_password');
@@ -21,6 +22,8 @@ class M_admin extends CI_Model{
 	   }
 	}
 
+=======
+>>>>>>> d23b129b541b69c39cb8557de021c627065435da
 	function M_admin(){
 		parent::__construct();
 		$this->load->database();
@@ -44,6 +47,14 @@ class M_admin extends CI_Model{
 		$product_price1= $data['product_price'];
 		$sql = "INSERT INTO product (product_name, product_brand, product_image, product_type_id, product_size1, product_price1) VALUES ('$product_name','$product_brand', '$product_image', '$product_type_id', '$product_size1', '$product_price1')";
 		$query = $this->db->query($sql);
+<<<<<<< HEAD
 	}	
+=======
+	}
+
+
+
+	
+>>>>>>> d23b129b541b69c39cb8557de021c627065435da
 }
 ?>

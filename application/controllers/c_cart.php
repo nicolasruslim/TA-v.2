@@ -21,3 +21,4 @@ class C_cart extends CI_Controller {
      		redirect('c_login', 'refresh');
    		}
  	}
+}

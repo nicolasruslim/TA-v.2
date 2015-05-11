@@ -34,12 +34,15 @@ class Modeldata extends CI_Model{
 		return $query->result();
 	}
 
+<<<<<<< HEAD
 	function get_amount_item_in_cart($id)
 	{
 		$query = $this->db->query("SELECT * FROM cart WHERE customer_id = $id");
 		return $query->num_rows();	
 	}
 
+=======
+>>>>>>> d23b129b541b69c39cb8557de021c627065435da
 	function cek_finger_rs($finger)
 	{
 		// $sql = "SELECT * FROM dokter WHERE data_biometrik_dokter = ?";

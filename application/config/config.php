@@ -26,7 +26,11 @@ $config['base_url']	= 'http://localhost/belanjaharian';
 | variable so that it is blank.
 |
 */
+<<<<<<< HEAD
 $config['index_page'] = 'index.php';
+=======
+$config['index_page'] = '';
+>>>>>>> d23b129b541b69c39cb8557de021c627065435da
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +228,11 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
+<<<<<<< HEAD
 $config['encryption_key'] = '1371012911930003';
+=======
+$config['encryption_key'] = '';
+>>>>>>> d23b129b541b69c39cb8557de021c627065435da
 
 /*
 |--------------------------------------------------------------------------
