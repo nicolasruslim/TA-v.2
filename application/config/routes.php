@@ -40,10 +40,6 @@
 
 $route['default_controller'] = "c_main";
 $route['404_override'] = '';
-<<<<<<< HEAD
-$route['admin']='admin/c_admin';
-=======
->>>>>>> d23b129b541b69c39cb8557de021c627065435da
 
 
 /* End of file routes.php */
