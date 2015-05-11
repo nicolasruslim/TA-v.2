@@ -1,0 +1,119 @@
+body{
+	background-color: #bdc3c7;
+}
+
+ul#navigasi li.default{
+	background-color: #f1c40f;
+	color: #E5E9FF;
+	font-size: 16px;
+}
+
+.default:hover{
+	background-color: #f1c40f;
+	color: #E5E9FF;
+	font-size: 16px;
+}
+
+#navbar {
+  	position: absolute;
+  	width: 90%;
+  	z-index: 100;
+  	background-color: white;
+  	margin-left: 5%;
+}
+
+
+ul#navigasi {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+}
+
+ul#navigasi li {
+  font: 14px sans-serif;
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  padding: 15px 20px;
+  background: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul#navigasi li:hover {
+  background: #1CE366;
+  color : #fff;
+}
+
+ul#navigasi li a{
+	text-decoration: none;
+	color: #000;
+}
+
+ul#navigasi li ul {
+  padding: 0;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul#navigasi li ul li { 
+  background: #ecf0f1; 
+  z-index: 100;
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+ul#navigasi li ul li:hover { background: #1CE366; color: #ffffff;}
+
+ul#navigasi li ul li a{
+	text-decoration: none;
+	color: #000;
+}
+
+.product-type{
+	color:black;
+	margin: 0px;
+}
+
+.recipe-type{
+  color:black;
+  margin: 0px;
+}
+
+ul#navigasi li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+#container{
+	background-color: #ffffff;
+	width: 90%;
+	height: 1500px;
+	position: absolute;
+	margin-left: 5%;
+	margin-top: 35px;
+}
+
+ul.products li {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
