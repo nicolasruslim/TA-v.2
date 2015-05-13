@@ -46,37 +46,21 @@
                     <img src="<?php echo base_url().'/assets/images/'.$product->product_image.'.jpg';?>">
                     <h4><?php echo $product->product_name;?></h4>
                 </a>
-                      <?php 
-                        echo form_open_multipart('c_main/insert_cart');
-                        
-                        //hidden input id produk
-                        form_hidden('product_id', '$product->product_id');
-
-                        //Dropdown untuk Memilih Ukuran Produk
-                        $options = array();
-                        foreach($product_size_price as $psp) {
-                            if ($psp->product_id == $product->product_id){ 
-                              $options[$psp->product_size] = $psp->product_size."&nbsp;".$psp->product_price ;
-                            }
-                        } 
-                        echo form_dropdown('size_price', $options,'','style="width: 150px; font-size: 13px; margin-bottom:10px;"');
-
-                        echo "<BR>";
-                        echo "Jumlah :";
-                        //input jumlah produk
-                        $product_amount = array(
-                          'name'        => 'product_amount',
-                          'id'          => 'product_amount',
-                          'style'       => 'width:60px;margin-bottom:10px;',
-                          'type'        => 'text',
-                          'placeholder' => '1-30',
-                          'default'     => '0',
-                        );
-                        echo form_input($product_amount);
-
-                        //Tombol Submit
-                        echo form_submit('input_cart', 'Masukkan ke Keranjang');
-                      ?>
+                <?php $product_id=$product->product_id; ?>
+                <form method="post" action="<?php echo site_url();?>/c_cart/insert_product_into_cart/<?php echo $product_id; ?>">
+                  <select name="product_size_price">
+                    <?php 
+                      foreach($product_size_price as $psp) {
+                        if ($psp->product_id == $product->product_id){ ?>
+                          <option value="<?php echo $psp->id_product_size_price;?>"><?php echo $psp->product_size."&nbsp;".$psp->product_price?></option>
+                    <?php
+                        }
+                      }
+                    ?>
+                  </select>
+                  <input type="text" name='quantity'>
+                  <button type="submit">Masukkan ke Keranjang</button>
+                </form>
                 </a>
             </li>
             <?php } ?>

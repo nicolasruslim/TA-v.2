@@ -65,18 +65,15 @@ class C_admin extends CI_Controller{
 				$error = array('error' => $this->upload->display_errors());
 				$this->load->view('file_view', $error);
 			}
-			echo $_POST['product_name'].'<br>';
-			echo $_POST['product_brand'].'<br>';			
-			echo $_POST['product_type'].'<br>';
-			echo $_POST['product_size'].'<br>';
-			echo $_POST['product_price'].'<br>';
-
 		}
 	}
 
 	public function insert_recipe(){
 		$this->load->helper('form');
-		$this->load->view('admin_insert_recipe');	
+		//ambil data product_size_price
+		$this->load->model('m_admin');
+		$this->m_admin->get_product_size_price();
+		$this->load->view('admin_insert_recipe');
 	}
 
 	public function insert_recipe_process(){

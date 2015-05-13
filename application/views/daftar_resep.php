@@ -42,8 +42,8 @@
         <ul class="recipes">
             <?php foreach($recipes as $recipe) { ?>
             <li>
-                <a href="<?php echo base_url().'/index.php/c_main/resep/'.$recipe->recipe_id;?>">
-                    <img src="<?php echo base_url().'/assets/images/recipes/'.$recipe->recipe_image.'.jpg';?>">
+                <a href="<?php echo base_url().'index.php/c_main/resep/'.$recipe->recipe_id;?>">
+                    <img src="<?php echo base_url().'assets/images/recipes/'.$recipe->recipe_image.'.jpg';?>">
                     <h4><?php echo $recipe->recipe_name;?></h4> 
                     <p><?php echo $recipe->recipe_description;?></p>
                 </a>

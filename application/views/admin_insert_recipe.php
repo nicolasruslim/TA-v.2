@@ -102,6 +102,31 @@
 		echo form_input($product_id);
 	?></p>
 
+	<p>Related Product Size :
+	<?php
+		$related_product_size = array(
+			'1'  	=> 'Seafood',
+            '2'    => 'Sup',
+            '3'    => 'Ayam',
+            '4'    => 'Daging',
+            '5'    => 'Dessert',
+            '6'    => 'Minuman',
+		);
+		echo form_dropdown('related_product_size',$related_product_size);
+	 ?></p>
+
+	<p>Related Product Amount :
+	<?php
+		$related_product_amount = array(
+              'name'        => 'related_product_amount',
+              'id'          => 'related_product_amount',
+              'style'       => 'width:30%',
+              'type'		=> 'text',
+              'placeholder' => 'Jumlah produk terkait',
+            );
+		echo form_input($product_id);
+	?></p>
+
 	 <p> <?php 
 	 	echo form_submit('tambah_resep', 'Add Recipe!');
 	 ?></p>

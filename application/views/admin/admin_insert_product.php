@@ -43,7 +43,7 @@
 	 <p>Product Type :
 	<?php
 		$product_type_options = array(
-			'1'  => 'Buah',
+			'1'  	=> 'Buah',
             '2'    => 'Sayur-Umbi',
             '3'    => 'Daging',
             '4'    => 'Telur',

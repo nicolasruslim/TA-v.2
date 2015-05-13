@@ -37,14 +37,14 @@ class C_main extends CI_Controller {
    		{
    			$session_data = $this->session->userdata('logged_in');
      		$data['username'] = $session_data['username'];
-     		$data['id'] = $session_data['username'];
-			$this->load->model('modeldata');
-			$data['amount_item_in_cart']=$this->modeldata->get_amount_item_in_cart($session_data['id']);
-			$data['products']=$this->modeldata->get_products($product_type_id);
-			$data['product_size_price']=$this->modeldata->get_product_size_price();
-			$this->load->view('belanja',$data);
-		}
-		else
+     		$data['id'] = $session_data['id'];
+  			$this->load->model('modeldata');
+  			$data['amount_item_in_cart']=$this->modeldata->get_amount_item_in_cart($session_data['id']);
+  			$data['products']=$this->modeldata->get_products($product_type_id);
+  			$data['product_size_price']=$this->modeldata->get_product_size_price();
+  			$this->load->view('belanja',$data);
+		  }
+		  else
    		{
      		//If no session, redirect to login page
      		redirect('c_login', 'refresh');
@@ -88,28 +88,27 @@ class C_main extends CI_Controller {
    		}
 	}
 
-	public function insert_cart()
-	{
-		if($this->session->userdata('logged_in'))
-   		{
-   			$session_data = $this->session->userdata('logged_in');
-     		$data['username'] = $session_data['username'];
-     		$data['id'] = $session_data['id'];
-			$this->load->model('modeldata');
-			$data['products']=$this->modeldata->get_products($product_type_id);
-			$data['product_size_price']=$this->modeldata->get_product_size_price();
-			$this->load->view('belanja',$data);
-		}
-		else
-   		{
-     		//If no session, redirect to login page
-     		redirect('c_login', 'refresh');
-   		}
-	}	
-
 	public function input_resep()
 	{
 		$this->load->view('form_input_resep');
 	}
+
+  public function buy_recipe_composition($recipe_id)
+  {
+   if($this->session->userdata('logged_in'))
+      {
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $this->load->model('m_cart');
+        $data['composition_list'] = $this->m_cart->get_recipe_composition($recipe_id);
+        $this->load->view('buy_recipe_composition',$data);
+    }
+    else
+      {
+        //If no session, redirect to login page
+        redirect('c_login', 'refresh');
+      }   
+  }
 }
 ?>

@@ -12,7 +12,7 @@ class Modeldata extends CI_Model{
 	}
 
 	function get_product_size_price(){
-		$query = $this->db->query("SELECT product_id, product_size, product_price FROM product_size_price");
+		$query = $this->db->query("SELECT * FROM product_size_price");
 		return $query->result();
 	}
 
@@ -38,6 +38,12 @@ class Modeldata extends CI_Model{
 	{
 		$query = $this->db->query("SELECT * FROM cart WHERE customer_id = $id");
 		return $query->num_rows();	
+	}
+
+	function get_items_in_cart($id)
+	{
+		$query = $this->db->query("SELECT * FROM cart ca, product pr, product_size_price psp WHERE ca.customer_id = $id AND ca.product_id = pr.product_id AND ca.id_product_size_price = psp.id_product_size_price");
+		return $query->result();
 	}
 	
 }
