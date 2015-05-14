@@ -2,6 +2,24 @@ body{
 	background-color: #bdc3c7;
 }
 
+#header{
+  position: relative;
+  width: 90%;
+  z-index: 100;
+  background-color: white;
+  margin-left: 5%;
+  height: 300px;
+}
+
+#div_logo{
+  width: 300px;
+  height: 100px;
+}
+
+#logo{
+  width: 300px;
+}
+
 ul#navigasi li.default{
 	background-color: #f1c40f;
 	color: #E5E9FF;
@@ -15,7 +33,7 @@ ul#navigasi li.default{
 }
 
 #navbar {
-  	position: absolute;
+  	position: relative;
   	width: 90%;
   	z-index: 100;
   	background-color: white;

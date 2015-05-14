@@ -84,6 +84,7 @@ class C_cart extends CI_Controller {
 		if($this->session->userdata('logged_in'))
    		{
    			$session_data = $this->session->userdata('logged_in');
+   			$data['username'] = $session_data['username'];
    			$customer_id=$session_data['id'];
      		$this->load->model('m_cart');
 			$this->m_cart->checkout($customer_id);
@@ -99,8 +100,12 @@ class C_cart extends CI_Controller {
 	public function view_orders(){
 		if($this->session->userdata('logged_in'))
    		{
+   			$session_data = $this->session->userdata('logged_in');
+   			$data['username'] = $session_data['username'];
+   			$customer_id=$session_data['id'];
      		$this->load->model('m_cart');
-			
+     		$data = $this->m_cart->get_orders($customer_id);
+     		$this->load->view('view_orders', $data);
 		}
 		else
    		{

@@ -5,6 +5,17 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'/assets/css/style.css' ?>" />
 </head>
 <body>
+  <div id="header">
+    <div id="div_logo">
+      <img id="logo" src="<?php echo base_url().'/assets/images/logo.png';?>">
+    </div>
+    <div id="div_tagline">
+      
+    </div>
+    <div id="div_search-feature">
+      
+    </div>
+  </div>
   <div id="navbar">
     <ul id="navigasi">
       <li class="default">
