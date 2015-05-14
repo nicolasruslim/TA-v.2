@@ -10,18 +10,23 @@ class C_main extends CI_Controller {
  	public function index()
  	{
    		if($this->session->userdata('logged_in'))
-   		{
-     		$session_data = $this->session->userdata('logged_in');
-     		$data['username'] = $session_data['username'];
-     		$this->load->model('modeldata');
-			$data['amount_item_in_cart']=$this->modeldata->get_amount_item_in_cart($session_data['id']);
-     		$this->load->view('home', $data);
-   		}
-   		else
-   		{
-     		//If no session, redirect to login page
-     		redirect('c_login', 'refresh');
-   		}
+      {
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $this->load->model('modeldata');
+        $data['amount_item_in_cart']=$this->modeldata->get_amount_item_in_cart($session_data['id']);
+        $data['products']=$this->modeldata->get_popular_products();
+        $data['products_amount']= $this->modeldata->get_popular_products_amount();
+        $data['product_size_price']=$this->modeldata->get_product_size_price();
+        $data['city_list']=$this->modeldata->get_city_list();
+        $this->load->view('home',$data);
+      }
+      else
+      {
+        //If no session, redirect to login page
+        redirect('c_login', 'refresh');
+      }
  	}
  
  	public function logout()

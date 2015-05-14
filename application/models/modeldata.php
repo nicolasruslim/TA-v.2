@@ -11,6 +11,18 @@ class Modeldata extends CI_Model{
 		return $query->result();
 	}
 
+		function get_popular_products()
+	{
+		$query = $this->db->query("SELECT * FROM product");
+		return $query->result();
+	}
+
+	function get_popular_products_amount()
+	{
+		$query = $this->db->query("SELECT * FROM product");
+		return $query->num_rows();
+	}
+
 	function get_product_size_price(){
 		$query = $this->db->query("SELECT * FROM product_size_price");
 		return $query->result();
@@ -45,6 +57,11 @@ class Modeldata extends CI_Model{
 		$query = $this->db->query("SELECT * FROM cart ca, product pr, product_size_price psp WHERE ca.customer_id = $id AND ca.product_id = pr.product_id AND ca.id_product_size_price = psp.id_product_size_price");
 		return $query->result();
 	}
-	
+
+	function get_city_list()
+	{
+		$query = $this->db->query("SELECT city_name FROM city");
+		return $query->result();	
+	}	
 }
 ?>
