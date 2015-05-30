@@ -17,12 +17,24 @@ class C_cart extends CI_Controller {
 			$data['amount_item_in_cart']=$this->m_cart->get_amount_item_in_cart($session_data['id']);
 			$data['items_in_cart']=$this->m_cart->get_items_in_cart($session_data['id']);
      		$this->load->view('view_cart', $data);
-   		}
-   		else
-   		{
-     		//If no session, redirect to login page
-     		redirect('c_login', 'refresh');
-   		}
+   		}elseif ($this->session->userdata('logged_guest')){
+	        $session_data = $this->session->userdata('logged_guest');
+	        $data['username'] = 'Guest';
+	        $data['id'] = $session_data['id'];
+	        $this->load->model('m_guest');
+	        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
+	        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
+	        $this->load->view('view_cart',$data);
+      	}else{
+	        $this->load->model('m_guest');
+	        $session = array('id' => $this->m_guest->newGuest());
+	        $session_data = $this->session->set_userdata('logged_guest', $session);
+	        $this->load->model('m_guest');
+	        $data['id'] = $session_data['id'];
+	        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
+	        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
+	        $this->load->view('view_cart',$data);
+      }
  	}
 
  	public function insert_product_into_cart($product_id)
@@ -32,9 +44,12 @@ class C_cart extends CI_Controller {
 
 		if($this->session->userdata('logged_in'))
    		{
+   			$session_data = $this->session->userdata('logged_in');
+     		$data['username'] = $session_data['username'];
+
    			$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
-			$this->form_validation->set_rules('quantity'.$product_id, 'Quantity', 'greater_than[0]');
+			$this->form_validation->set_rules('quantity', 'Quantity', 'greater_than[0]');
 
 			if ($this->form_validation->run() == FALSE)
 			{
@@ -89,12 +104,11 @@ class C_cart extends CI_Controller {
      		$this->load->model('m_cart');
 			$this->m_cart->checkout($customer_id);
    			redirect('c_cart/view_orders', 'refresh');
-		}
-		else
-   		{
-     		//If no session, redirect to login page
-     		redirect('c_login', 'refresh');
-   		}
+		}elseif ($this->session->userdata('logged_guest')){
+	        $session_data = $this->session->userdata('logged_guest');
+	        $data['guest_id'] = $session_data['guest_id'];
+	        $this->load->view('register',$data);
+      	}
 	}
 
 	public function view_orders(){

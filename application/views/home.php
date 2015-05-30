@@ -27,7 +27,7 @@
 			</div>
 			<div class="col-md-4">
 			  <h1>
-			  <a href="#" title="Scroll down for your viewing pleasure">Keranjang.co</a>
+			  <a href="<?php echo site_url(); ?>">Keranjang.co</a>
 				  <p class="lead">Mudah, Cepat, Harga Pas</p></h1>
 			</div>
 			    <div class="col-md-4 pull-right">
@@ -52,32 +52,45 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">  
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">BELANJA</a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">BELANJA <i class="fa fa-chevron-down"></i></a>
 				<ul class="dropdown-menu">
-				  <li><a href="#">Buah</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/1' ?>">Buah</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Sayur dan Umbi</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/2' ?>">Sayur dan Umbi</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Daging</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/3' ?>">Daging</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Telor</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/4' ?>">Telor</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Makanan</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/5' ?>">Makanan</a></li>
 				  <li class="divider"></li>
-				  <li><a href="#">Minuman</a></li>
-				  <li class="divider"></li>
-				  <li><a href="#">Bacaan</a></li>
-				 </ul>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/6' ?>">Minuman</a></li>
+				</ul>
 			</li>
-          <li><a href="#">Logo Akun</a></li>
-          <li><a href="#">Logo Akun</a></li>
-		  <li><a href="#">Logo Akun</a></li>
-		  <li><a href="#">Logo Akun</a></li>
+          <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">RESEP <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/1' ?>">Seafood</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/2' ?>">Sup</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/3' ?>">Ayam</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/4' ?>">Daging</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Dessert</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/6' ?>">Minuman</a></li>
+				</ul>
+			</li>
+          <li><a href="#">Cara Belanja</a></li>
+		  <li><a href="#">Tentang Kami</a></li>
+		  <li><a href="#">Kontak</a></li>
         </ul>
         
       </div>
     </div>
-</nav><!-- /.navbar -->
+</nav>
 
 <!-- Begin Body -->
 <div class="container">
@@ -97,21 +110,21 @@
 									</ol>
 									<div class="carousel-inner">
 										<div class="item active">
-											<img class="slide-image" src="http://placehold.it/800x200" alt="">
+											<img class="slide-image" src="<?php echo base_url().'/assets/images/grocery.jpg' ?>" alt="">
 											<div class="carousel-caption">
-                                                    Pertama
+                                                    
                                                 </div>
 										</div>
 										<div class="item">
-											<img class="slide-image" src="http://placehold.it/800x200" alt="">
+											<img class="slide-image" src="<?php echo base_url().'/assets/images/grocery2.jpg' ?>" alt="">
 											<div class="carousel-caption">
-                                                    Kedua
+                                                    
                                                 </div>
 										</div>
 										<div class="item">
-											<img class="slide-image" src="http://placehold.it/800x200" alt="">
+											<img class="slide-image" src="<?php echo base_url().'/assets/images/grocery3.jpg' ?>" alt="">
 											<div class="carousel-caption">
-                                                    Ketiga
+                                                    
                                                 </div>
 										</div>
 									</div>
@@ -126,48 +139,43 @@
 						</div>
 					</div><!-- /.row -->
 					<br>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="col col-sm-3">
-							<a href="#"><img src="//placehold.it/300x120/77CCDD/66BBCC" class="img-responsive"></a>
-						</div>
-						<div class="col col-sm-3">
-							<a href="#"><img src="//placehold.it/300x120/77CCDD/66BBCC" class="img-responsive"></a>
-						</div>
-						<div class="col col-sm-3">
-							<a href="#"><img src="//placehold.it/300x120/77CCDD/66BBCC" class="img-responsive"></a>
-						</div>
-						<div class="col col-sm-3">
-							<a href="#"><img src="//placehold.it/300x120/77CCDD/66BBCC" class="img-responsive"></a>
-						</div>
-					</div>
-				</div><br>
+				
                
-                  <h5>Produk Terlaris di Bulan ini?></h5>
+                  <h5>Produk Terlaris di Bulan ini</h5>
 				  <hr>
+              
+                </a>
+            </li>
                   <?php $i=0;
                   foreach($products as $product) { 
                     if($i%4==0){
                       echo '<div class="row">';
                     }
                     ?>
-                    
                       <div class=" well col-md-3 col-sm-6 col-6 text-center">
   					            <p class="text-center"><?php echo $product->product_name;?></p>
+                        <?php 
+                          $product_id=$product->product_id; 
+                          $link = site_url().'/c_cart/insert_product_into_cart/'.$product_id;
+                        ?>
                         <a href="#"><img src="<?php echo base_url().'/assets/images/'.$product->product_image.'.jpg';?>" class="img-responsive"></a>
-  					            <p class=" text-center text-red"><b>1 Kg/Rp.2500,-</b></p>
-  					            <div class="form-group">
-                          <select class="form-control" name="product_size_price">
-                            <?php foreach($product_size_price as $psp) {
-                              if ($psp->product_id == $product->product_id){ ?>
-                                <option value="<?php echo $psp->id_product_size_price;?>"><?php echo $psp->product_size."/Rp.".$psp->product_price.",-"?></option>
-                              <?php
+                        <div class="form-group">
+                          <form method="post" action="<?php echo $link; ?>">
+                            <select class="form-control" name="product_size_price">
+                              <?php foreach($product_size_price as $psp) {
+                                if ($psp->product_id == $product->product_id){ ?>
+                                  <option value="<?php echo $psp->id_product_size_price;?>"><?php echo $psp->product_size."/Rp.".$psp->product_price.",-"?></option>
+                                <?php
+                                }
                               }
-                            }
-                            ?>
-    							        </select>
+                              ?>
+      							        </select>
+                            <table class="table">
+                              <tr><td><b>QTY</b></td><td><input type="text" name="quantity" class="form-control" placeholder="Misal : 1-25"></td></tr>
+                            </table>
+                            <button type="submit" class="btn btn-success btn-flat">Masukkan Keranjang</button>
+                          </form>
   						          </div>
-  						          <button class="btn btn-success btn-flat">Masukkan Keranjang</button>
                       </div>
 
                       <?php
@@ -184,28 +192,37 @@
               	<!--/end right column-->
       	</div> 
 	
-	
 	<!--mid column-->
       		<div class="col-md-3">
               <div class="panel" id="midCol">
                 <div class="panel-heading" style="background-color:#008A2E;color:#eee;">Selamat Datang di Keranjang.co</div> 
                 <div class="panel-body">
-					<table class="table text-center">
-          <tr><td><?php echo form_open('c_login/verify_login'); ?>
-          <form type="post" action=""></form>
-            <label for="username">Username:</label>
-            <input type="text" size="20" id="username" name="username"/><br/>
-            <label for="password">Password:</label>
-            <input type="password" size="20" id="passowrd" name="password"/>
-          </form>
-          </td>
-          </tr>
-					<tr><td></td><td><button class="btn btn-success btn-flat btn-lg">Masuk Akun</button></td><td><button class="btn btn-success btn-flat btn-lg">Buat Akun</button></td></tr>
-					</table>
+        	<?php if($this->session->userdata('logged_in')){ ?>
+        		<h2>Welcome <?php echo $username; ?>!</h2>
+    			<a href="<?php echo site_url().'/c_main/logout' ?>">Logout</a><br>
+        	<?php }
+          	else{ ?>
+          		<h2>Welcome <?php echo $username; ?>!</h2>
+          	<?php
+	          	echo form_open('c_login/verify_login'); ?>
+	          	<table class="table text-center">
+	              	<div class="form-group">
+	              		<label for="username1">Username</label>
+	              		<input type="username" class="form-control" id="username1" name="username" placeholder="Masukkan username anda...">
+	            	</div>
+	            	<div class="form-group">
+	              		<label for="exampleInputPassword1">Password</label>
+	              		<input type="password"  name="password" class="form-control" id="exampleInputPassword1" placeholder="Masukkan password anda...">
+	            	</div>
+	          		<tr><td><button class="btn btn-success btn-flat">Masuk</button></td><td><a href="<?php echo site_url().'/c_main/register' ?>"class="btn btn-success btn-flat">Buat Akun</a></td></tr>
+	          	</table>
+	        <?php } ?>
+
+
 					<table class="table text-center">
 					<th>Isi Keranjang : </th>
 					<th></th>
-					<tr><td><img src="<?php echo base_url().'/assets/images/keranjang.png' ?>"></td><td>Kosong<br><p class="text-red"><b>Rp.0,-</b></p></td></tr>
+					<tr><td><img src="<?php echo base_url().'/assets/images/keranjang.png' ?>"></td><td><a href="<?php echo site_url().'/c_cart' ?>"><?php echo $amount_item_in_cart;?> item</a><br><p class="text-red"><b>Rp.<?php echo $total_price_in_cart; ?>,-</b></p></td></tr>
 					</table>
 					<table class="table">
 					  <th></th>

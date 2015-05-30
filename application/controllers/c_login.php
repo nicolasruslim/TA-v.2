@@ -23,12 +23,11 @@ class C_login extends CI_Controller {
 
    		if($this->form_validation->run() == FALSE)
    		{
-	    	//Field validation failed.  User redirected to login page
-	     	$this->load->view('login');
+	     	redirect('c_main', 'refresh');
 	   	}
 	   	else
 	   	{
-	    	//Go to private area
+	    	//Pindahkan barang di keranjang guest ke keranjang user
 	     	redirect('c_main', 'refresh');
 	   	}
 	}

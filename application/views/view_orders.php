@@ -14,10 +14,12 @@
         echo $product_name[$i].'&nbsp;';
         echo $product_size[$i].'&nbsp;';
         echo $product_price[$i].'&nbsp;';
-        echo $quantity[$i].'<br>';
-        $total = $total + $product_price[$i];
+        echo $quantity[$i].'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        $subtotal = $product_price[$i]*$quantity[$i];
+        echo 'Subtotal = '.$subtotal.'<br>';
+        $total = $total + $subtotal;
       }
-      echo 'Total biaya yang harus dibayar :'.$total;
+      echo 'Total biaya yang harus dibayar : '.$total;
     }
   ?>
   </div>
