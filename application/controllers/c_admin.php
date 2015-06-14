@@ -72,8 +72,10 @@ class C_admin extends CI_Controller{
 		$this->load->helper('form');
 		//ambil data product_size_price
 		$this->load->model('m_admin');
-		$this->m_admin->get_product_size_price();
-		$this->load->view('admin_insert_recipe');
+		$this->load->model('modeldata');
+		$data['product_size_price'] = $this->m_admin->get_product_size_price();
+		$data['products'] = $this->modeldata->get_all_products();
+		$this->load->view('admin/admin_insert_recipe', $data);
 	}
 
 	public function insert_recipe_process(){
@@ -99,11 +101,12 @@ class C_admin extends CI_Controller{
 				'recipe_type_id' => $this->input->post('recipe_type_id'),
 				'recipe_description' => $this->input->post('recipe_description'),
 				'recipe_howto' => $this->input->post('recipe_howto'),
+				'recipe_difficulty' => $this->input->post('recipe_difficulty'),
 				'recipe_composition_name' => $this->input->post('recipe_composition_name'),
-				'product_id' => $this->input->post('product_id'),
+				'product_id' => $this->input->post('related_product'),
 				'recipe_composition_amount' => $this->input->post('recipe_composition_amount'),
 			);
-			$this->m_admin->insert_product_process($data);
+			$this->m_admin->insert_recipe_process($data);
 			$this->load->view('upload_success',$data);
 		}
 		else

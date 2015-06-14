@@ -146,18 +146,20 @@ class C_main extends CI_Controller {
 	public function detail_resep($recipe_id)
 	{
 		if($this->session->userdata('logged_in')){
-   		$session_data = $this->session->userdata('logged_in');
+      $session_data = $this->session->userdata('logged_in');
+      $this->load->model('modeldata');
      	$data['username'] = $session_data['username'];
-			$this->load->model('modeldata');
+      $data['rating_status'] = $this->modeldata->get_rating_status($session_data['id'], $recipe_id);
 			$data['recipe']=$this->modeldata->get_recipe_detail($recipe_id);
 			$data['recipe_composition']=$this->modeldata->get_recipe_composition($recipe_id);
 			$this->load->view('detail_resep',$data);
 	  }elseif ($this->session->userdata('logged_guest')){
       $session_data = $this->session->userdata('logged_guest');
+      $this->load->model('modeldata');
       $data['username'] = 'Guest';
+      $data['rating_status'] = $this->modeldata->get_rating_status($session_data['id'], $recipe_id);
       $data['id'] = $session_data['id'];
       $this->load->model('m_guest');
-      $this->load->model('modeldata');
       $data['recipe']=$this->modeldata->get_recipe_detail($recipe_id);
       $data['recipe_composition']=$this->modeldata->get_recipe_composition($recipe_id);
       $data['city_list']=$this->modeldata->get_city_list();
@@ -166,6 +168,8 @@ class C_main extends CI_Controller {
       $this->load->model('m_guest');
       $session = array('id' => $this->m_guest->newGuest());
       $session_data = $this->session->set_userdata('logged_guest', $session);
+      $this->load->model('modeldata');
+      $data['rating_status'] = $this->modeldata->get_rating_status($session_data['id'], $recipe_id);
       $this->load->model('modeldata');
       $data['city_list']=$this->modeldata->get_city_list();
       $data['id'] = $session_data['id'];
@@ -221,6 +225,24 @@ class C_main extends CI_Controller {
     $data['penyakit']= $penyakit;
     $this->m_user->add_customer($data);
     $this->load->view('register_confirmation',$data);
+  }
+
+  public function give_rating($recipe_id){
+    if($this->session->userdata('logged_in'))
+      {
+        $session_data = $this->session->userdata('logged_in');
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $this->load->model('modeldata');
+        $rating_value = $_POST['rating'];
+        $this->modeldata->give_rating($session_data['id'], $recipe_id, $rating_value);
+        redirect('c_main/detail_resep/'.$recipe_id, 'refresh');
+    }
+  else
+    {
+        //If no session, redirect to login page
+        redirect('c_login', 'refresh');
+    }   
   }
 }
 ?>

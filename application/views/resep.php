@@ -103,12 +103,12 @@
 			</div>
 			<nav class="navbar navbar-static">
 					<ul class="nav navbar-nav">
-					    <li><a href="#">Seafood</a></li>
-					    <li><a href="#">Soup</a></li>
-					    <li><a href="#">Ayam</a></li>
-					    <li><a href="#">Daging</a></li>
-						<li><a href="#">Dessert</a></li>
-						<li><a href="#">Minuman</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/1' ?>">Seafood</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/2' ?>">Soup</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/3' ?>">Ayam</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/4' ?>">Daging</a></li>
+						<li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Dessert</a></li>
+						<li><a href="<?php echo site_url().'/c_main/daftar_resep/6' ?>">Minuman</a></li>
 					</ul>
 			</nav>
 			<br>

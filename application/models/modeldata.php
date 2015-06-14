@@ -5,6 +5,12 @@ class Modeldata extends CI_Model{
 		parent::__construct();
 	}
 
+	function get_all_products()
+	{
+		$query = $this->db->query("SELECT * FROM product p");
+		return $query->result();
+	}
+
 	function get_products($product_type_id)
 	{
 		$query = $this->db->query("SELECT * FROM product p, product_type pt WHERE p.product_type_id=pt.id_product_type AND p.product_type_id=$product_type_id");
@@ -90,5 +96,21 @@ class Modeldata extends CI_Model{
 		$query = $this->db->query("SELECT city_name FROM city");
 		return $query->result();	
 	}	
+
+	function give_rating($customer_id, $recipe_id, $rating_value)
+	{
+		$query = $this->db->query("INSERT INTO recipe_customer_rating (recipe_id, customer_id, rating) values ($recipe_id, $customer_id, $rating_value)");
+	}	
+
+	function get_rating_status($customer_id, $recipe_id)
+	{
+		$query = $this->db->query("SELECT * FROM recipe_customer_rating WHERE recipe_id = $recipe_id AND customer_id = $customer_id");
+		if(!empty($query->result())){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
 }
 ?>

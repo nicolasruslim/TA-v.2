@@ -52,5 +52,29 @@ class M_admin extends CI_Model{
 		return $query->result();
 		
 	}
+
+	function insert_recipe_process($data)
+	{
+		$array_recipe_composition_name = $data['recipe_composition_name'];
+		$array_product_id = $data['product_id'];
+		$array_recipe_composition_amount = $data['recipe_composition_amount'];
+		$recipe_name= $data['recipe_name'];
+		$recipe_image = $data['recipe_image'];
+		$recipe_type_id = $data['recipe_type_id'];
+		$recipe_description = $data['recipe_description'];
+		$recipe_howto = $data['recipe_howto'];
+		$recipe_difficulty = $data['recipe_difficulty'];
+		$sql = "INSERT INTO recipe (recipe_name, recipe_image, id_recipe_type, recipe_description, recipe_howto, recipe_difficulty) VALUES ('$recipe_name','$recipe_image', '$recipe_type_id', '$recipe_description', '$recipe_howto', '$recipe_difficulty')";
+		$this->db->query($sql);
+		$recipe_id = $this->db->insert_id();
+		$i = 0;
+		foreach ($array_recipe_composition_name as $composition_name) {
+     		$product_id = $array_product_id[$i];
+     		$composition_amount = $array_recipe_composition_amount[$i];
+     		$i++;
+     		$sql = "INSERT INTO recipe_composition (composition_name, recipe_id, product_id, recipe_composition_amount, id_product_size_price, product_amount) VALUES ('$recipe_name','$recipe_image', '$recipe_type_id', '$recipe_description', '$recipe_howto', '$recipe_difficulty')";
+			$query = $this->db->query($sql);
+		}
+	}	
 }
 ?>
