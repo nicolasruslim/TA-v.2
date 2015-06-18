@@ -78,7 +78,7 @@
 				  <li class="divider"></li>
 				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/4' ?>">Daging</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Dessert</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Sayur</a></li>
 				  <li class="divider"></li>
 				  <li><a href="<?php echo site_url().'/c_main/daftar_resep/6' ?>">Minuman</a></li>
 				 </ul>
@@ -107,7 +107,7 @@
 					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/2' ?>">Soup</a></li>
 					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/3' ?>">Ayam</a></li>
 					    <li><a href="<?php echo site_url().'/c_main/daftar_resep/4' ?>">Daging</a></li>
-						<li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Dessert</a></li>
+						<li><a href="<?php echo site_url().'/c_main/daftar_resep/5' ?>">Sayur</a></li>
 						<li><a href="<?php echo site_url().'/c_main/daftar_resep/6' ?>">Minuman</a></li>
 					</ul>
 			</nav>

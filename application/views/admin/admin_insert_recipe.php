@@ -15,7 +15,7 @@
 			<option value="2">Sup</option>
 			<option value="3">Ayam</option>
 			<option value="4">Daging</option>
-			<option value="5">Dessert</option>
+			<option value="5">Sayur</option>
 			<option value="6">Minuman</option>
 		</select></p>
 		<p>Recipe Description : 

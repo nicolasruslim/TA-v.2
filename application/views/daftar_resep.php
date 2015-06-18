@@ -26,7 +26,7 @@
               <a href="<?php echo site_url().'/c_main/daftar_resep/2' ?>"><li><p class='product-type'>Sup</p></li></a>
               <a href="<?php echo site_url().'/c_main/daftar_resep/3'?>"><li><p class='product-type'>Ayam</p></li></a>
               <a href="<?php echo site_url().'/c_main/daftar_resep/4'?>"><li><p class='product-type'>Daging</p></li></a>
-              <a href="<?php echo site_url().'/c_main/daftar_resep/5'?>"><li><p class='product-type'>Dessert</p></li></a>
+              <a href="<?php echo site_url().'/c_main/daftar_resep/5'?>"><li><p class='product-type'>Sayur</p></li></a>
               <a href="<?php echo site_url().'/c_main/daftar_resep/6'?>"><li><p class='product-type'>Minuman</p></li></a>
           </ul>
         </li>
