@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2015 at 12:05 AM
+-- Generation Time: Jun 21, 2015 at 05:09 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `id_product_size_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `status` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=107 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cart`
@@ -78,7 +78,8 @@ INSERT INTO `cart` (`cart_id`, `customer_id`, `product_id`, `id_product_size_pri
 (102, 1, 20, 21, 1, 'cart'),
 (103, 1, 1, 1, 10, 'cart'),
 (104, 1, 6, 7, 1, 'cart'),
-(105, 1, 20, 21, 1, 'cart');
+(105, 1, 20, 21, 1, 'cart'),
+(106, 1, 39, 39, 3, 'cart');
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,7 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_email`, `custo
 CREATE TABLE IF NOT EXISTS `guest` (
 `guest_id` int(11) NOT NULL,
   `guest_ip` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guest`
@@ -172,7 +173,15 @@ INSERT INTO `guest` (`guest_id`, `guest_ip`) VALUES
 (26, '127.0.0.1'),
 (27, '127.0.0.1'),
 (28, '127.0.0.1'),
-(29, '127.0.0.1');
+(29, '127.0.0.1'),
+(30, '127.0.0.1'),
+(31, '127.0.0.1'),
+(32, '127.0.0.1'),
+(33, '127.0.0.1'),
+(34, '127.0.0.1'),
+(35, '127.0.0.1'),
+(36, '127.0.0.1'),
+(37, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -235,7 +244,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `product_brand` varchar(50) NOT NULL,
   `product_image` varchar(150) NOT NULL,
   `product_type_id` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
@@ -263,7 +272,53 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_brand`, `product_i
 (19, 'Tomato Hybrid - Grade A', 'Fresho', 'Fresho - Tomato Hybrid - Grade A', 1),
 (20, 'Tomato Local - Grade A', 'Fresho', 'Fresho - Tomato Local - Grade A', 1),
 (22, 'Manggo - Banganapalli', 'Fresho', 'Fresho_-_Manggo_-_Banganapalli', 1),
-(23, 'Watermelon Kiran', 'Fresho', 'Fresho_-_Watermelon_Kiran', 1);
+(23, 'Watermelon Kiran', 'Fresho', 'Fresho_-_Watermelon_Kiran', 1),
+(24, 'Chicken Breast - Boneless', 'Fresho Meats', 'Fresho_Meats_-_Chicken_Breast_-_Boneless', 3),
+(25, 'White Prawns - Medium', 'Fresho Meats', 'Fresho_Meats_-_White_Prawns_-_Medium', 3),
+(26, 'Chicken - Liver', 'Fresho Meats', 'Chicken_-_Liver', 3),
+(27, 'Mackerel Fish (Large) - 2 Pieces', 'Fresho Meats', 'Fresho_Meats_-_Mackerel_Fish_Large_-_2_Pieces', 3),
+(28, 'Tuna Fish - Steak/Slice', 'Fresho Meats', 'Fresho_Meats_-_Tuna_Fish_-_Steak_or_Slice', 3),
+(29, 'Chicken Drumstick - Without Skin', 'Fresho Meats', 'Fresho_Meats_-_Chicken_Drumstick_-_Without_Skin', 3),
+(30, 'Chicken Mixed - Boneless', 'Fresho Meats', 'Fresho_Meats_-_Chicken_Mixed_-_Boneless', 3),
+(31, 'Chicken Wings', 'Fresho Meats', 'Fresho_Meats_-_Chicken_Wings', 3),
+(32, 'Mutton Shoulder - Boneless', 'Fresho Meats', 'Fresho_Meats_-_Mutton_Shoulder_-_Boneless', 3),
+(33, 'Mutton - Leg Pieces', 'Fresho Meats', 'Fresho_Meats_-_Mutton_-_Leg_Pieces', 3),
+(34, 'Mutton - Mince', 'Fresho Meats', 'Fresho_Meats_-_Mutton_-_Mince', 3),
+(35, 'Coconut Oil', 'Sunco', 'Sunco_-_Coconut_Oil', 4),
+(36, 'Gula Tebu Kuning', 'Gulaku', 'Gulaku_-_Gula_Tebu_Kuning', 4),
+(37, 'Gula Tebu Premium Putih', 'Gulaku', 'Gulaku_-_Gula_Tebu_Premium_Putih', 4),
+(38, 'Garam Beryodium', 'Miwon', 'Miwon_-_Garam_Beryodium', 4),
+(39, 'Garam Beryodium Botol', 'Miwon', 'Miwon_-_Garam_Beryodium_-_Botol', 4),
+(40, 'Garlic', 'Fresho', 'Fresho_-_Garlic', 2),
+(41, 'Terasi Udang', 'ABC', 'ABC_-_Terasi_Udang', 4),
+(42, 'Red Chilli', 'BB Royal', 'BB_Royal_-_Red_Chilli', 4),
+(43, 'Lemongrass', 'Fresho', 'Fresho_-_Lemongrass', 4),
+(44, 'Curry Powder', 'MDH', 'MDH_-_Curry_Powder', 4),
+(45, 'Brown Sugar', 'Arya Organik', 'Arya_Organic_-_Brown_Sugar', 4),
+(46, 'Coconut Milk Powder', 'Maggi', 'Maggi_-_Coconut_Milk_Powder', 4),
+(47, 'Hake Fillets', 'Fresho Meats', 'Fresho_Meats_-_Hake_Fillets', 3),
+(48, 'Sweet Lime', 'Fresho', 'Fresho_-_Sweet_Lime', 1),
+(49, 'Sunflower Oil - Premium Refined', 'Safal', 'Safal_-_Sunflower_Oil_-_Premium_Refined', 4),
+(50, 'Shiitake Mushrooms', 'Le Gourmetz', 'Le_Gourmetz_-_Shiitake_Mushrooms', 2),
+(51, 'Paste - Massaman Curry', 'Real Thai', 'Real_Thai_-_Paste_-_Massaman_Curry', 4),
+(52, 'Straight To Wok Medium Noodles', 'Amoy', 'Amoy_-_Straight_To_Wok_Medium_Noodles', 6),
+(53, 'Canola Oil', 'Borges', 'Borges_-_Canola_Oil', 4),
+(54, 'Celery', 'Fresho', 'Fresho_-_Celery', 2),
+(55, 'Leeks', 'Fresho', 'Fresho_-_Leeks', 2),
+(56, 'Mentega', 'Blue Band', 'Blue_Band_-_Mentega', 4),
+(57, 'Kaldu Ayam', 'Royco', 'Royco_-_Kaldu_Ayam', 4),
+(58, 'Broccoli', 'Fresho', 'Fresho_-_Broccoli', 2),
+(59, 'Stilton Cheese', 'Cooper Thornhill', 'Cooper_Thornhill_-_Stilton_Cheese', 5),
+(60, 'Cream Cheese', 'La Cremella', 'La_Cremella_-_Cream_Cheese', 5),
+(61, 'Korma Paste', 'Pataks', 'Pataks_-_Korma_Paste', 4),
+(62, 'Cherry Tomato', 'Kraft Seeds', 'Kraft_Seeds_-_Cherry_Tomato', 2),
+(63, 'Rosemary', 'Naturesmith', 'Naturesmith_-_Rosemary', 4),
+(64, 'Organic Tarragon', 'Spicely Organics', 'Spicely_Organics_-_Organic_Tarragon', 4),
+(65, 'Asparagus', 'Fresho', 'Fresho_-_Asparagus', 2),
+(66, 'Courgettes', 'Sainburry', 'Sainburry_-_Courgettes', 2),
+(67, 'Green Peas - Peeled', 'Fresho', 'Fresho_-_Green_Peas_-_Peeled', 2),
+(68, 'Feta', 'Athenos', 'Athenos_-_Feta_', 5),
+(69, 'Crumbled Feta', 'Athenos', 'Athenos_-_Crumbled_Feta_', 5);
 
 -- --------------------------------------------------------
 
@@ -276,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `product_size_price` (
   `product_id` int(11) NOT NULL,
   `product_size` varchar(50) NOT NULL,
   `product_price` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_size_price`
@@ -305,7 +360,53 @@ INSERT INTO `product_size_price` (`id_product_size_price`, `product_id`, `produc
 (20, 19, '1 kg', 3200),
 (21, 20, '1 kg', 2600),
 (22, 22, '1 kg', 45000),
-(23, 23, '2 kg', 25000);
+(23, 23, '2 kg', 25000),
+(24, 24, '500 gr', 40000),
+(25, 25, '500 gr', 45000),
+(26, 26, '500 gr', 10000),
+(27, 27, '500 gr', 29000),
+(28, 28, '500 gr', 48000),
+(29, 29, '500 gr', 29000),
+(30, 30, '500 gr', 45000),
+(31, 31, '500 gr', 18000),
+(32, 32, '500 gr', 68000),
+(33, 33, '500 gr', 56000),
+(34, 34, '500 gr', 69000),
+(35, 35, '1000 ml', 19000),
+(36, 36, '1 Kg', 15600),
+(37, 37, '1 Kg', 15500),
+(38, 38, '500 gr', 6000),
+(39, 39, '300 gr', 7000),
+(40, 40, '100 gr', 2500),
+(41, 41, '20 pcs', 4500),
+(42, 42, '200 gr', 7800),
+(43, 43, '5 stalks', 6000),
+(44, 44, '100 gr', 10000),
+(45, 45, '500 gr', 14000),
+(46, 46, '100 gr', 16000),
+(47, 47, '500 gr', 26000),
+(48, 48, '500 gr', 7000),
+(49, 49, '1 Litre', 16000),
+(50, 50, '35 gr', 20000),
+(51, 51, '227 gr', 35000),
+(52, 52, '1 pc - 150 gr', 7500),
+(53, 53, '1 litre', 50000),
+(54, 54, '500 gr', 7000),
+(55, 55, '100 gr', 2500),
+(56, 56, '200 gr', 6000),
+(57, 57, '100 gr', 4700),
+(58, 58, '200 gr', 10000),
+(59, 59, '200 gr', 100000),
+(60, 60, '200 gr', 35000),
+(61, 61, '290 gr', 50000),
+(62, 62, '25 pcs', 15000),
+(63, 63, '25 gr', 12000),
+(64, 64, '3 gr', 15000),
+(65, 65, '100 gr', 8000),
+(66, 66, '1 pc - 200 gr', 7000),
+(67, 67, '250 gr', 6000),
+(68, 68, '226 gr', 50000),
+(69, 69, '170 gr', 70000);
 
 -- --------------------------------------------------------
 
@@ -324,12 +425,12 @@ CREATE TABLE IF NOT EXISTS `product_type` (
 
 INSERT INTO `product_type` (`id_product_type`, `product_type_name`) VALUES
 (1, 'buah'),
-(2, 'sayur-umbi'),
-(3, 'daging'),
-(4, 'telur'),
-(5, 'makanan'),
-(6, 'minuman'),
-(7, 'bacaan');
+(2, 'sayur, umbi, jamur'),
+(3, 'ayam, daging, ikan, telur'),
+(4, 'bahan memasak'),
+(5, 'susu dan olahan susu'),
+(6, 'makanan'),
+(7, 'minuman');
 
 -- --------------------------------------------------------
 
@@ -355,8 +456,8 @@ CREATE TABLE IF NOT EXISTS `recipe` (
 --
 
 INSERT INTO `recipe` (`recipe_id`, `recipe_name`, `recipe_image`, `id_recipe_type`, `recipe_description`, `recipe_portion`, `recipe_composition`, `recipe_howto`, `recipe_difficulty`, `recipe_rating`) VALUES
-(1, 'Coconut Fish Curry', 'Coconut Fish Curry', 1, 'This colourful hake and prawn one-pot has Thai and Indian inspired flavours and is quick enough for midweek - ready in under 30 minutes', 4, '{"compositions":[     {"composition":"1 tbsp vegetable oil"},     {"composition":"1 onion, finely chopped"},     {"composition":"thumb-sized piece ginger, finely grated"},     {"composition":"3 garlic cloves, crushed"},     {"composition":"1 tsp shrimp paste"},     {"composition":"1 small red chilli"},     {"composition":"shredded (deseeded if you don''t like it too hot)"},     {"composition":"2 lemongrass stalks, split, then bruised with a rolling pin"},     {"composition":"1 heaped tbsp medium curry powder"},     {"composition":"1 heaped tbsp light muscovado sugar"},     {"composition":"small bunch coriander, stems finely chopped"},     {"composition":"400g can coconut milk"},     {"composition":"450g skinless hake fillets, cut into rectangles, roughly credit card size"},     {"composition":"220g pack frozen raw whole prawns (we used Big & Juicy Tiger Prawns, which are sustainably fished)"},     {"composition":"1 lime, halved"},     {"composition":"cooked rice, to serve"} ]}', '{"howtos":[     {"howto":"Heat the oil in a wide, lidded frying pan, then soften the onion for 5 mins. Increase the heat a little, stir in the ginger, garlic, shrimp paste, chilli and lemongrass, and cook for 2 mins. Add the curry powder and sugar, and keep stirring. When the sugar starts to melt and everything starts to clump together, add the coriander stems, coconut milk and 2 tbsp water, then bring to a simmer."},     {"howto":"Add the fish to the sauce, tuck the prawns in here and there, then squeeze over half the lime. Pop on the lid and simmer for 5 mins more or until the hake is just cooked and flaking, and the prawns are pink through. Taste for seasoning, adding a squeeze more lime to the sauce if you like. Scatter over the coriander leaves and serve with rice."} ]}', 2, 0),
-(2, 'Spicy Prawn Soup', 'Spicy Prawn Soup', 1, 'A quick and spicy wok-based soup means one pan, zero fuss and supper''s on the table in 20 minutes', 4, '{"compositions":[     {"composition":"1 tbsp sunflower oil"},     {"composition":"300g bag crunchy stir-fry vegetables"},     {"composition":"140g shiitake mushrooms, sliced"},     {"composition":"2 tbsp Thai green curry paste"},     {"composition":"2 tbsp Thai green curry paste"},     {"composition":"2 tbsp Thai green curry paste;400g can reduced-fat coconut milk"},     {"composition":"200ml vegetable or fish stock"},     {"composition":"300g medium straight-to-wok noodles"},     {"composition":"200g bag large, raw prawns"} ]}', '{"howtos":[    {"howto":"Heat a wok, add the oil, then stir-fry the veg and mushrooms for 2-3 mins. Take out and set aside, then tip the curry paste into the pan and fry for 1 min."},    {"howto":"Pour in the coconut milk and stock. Bring to the boil, drop in the noodles and prawns, then reduce the heat and simmer for 4 mins until the prawns are cooked through. Stir in the veg, then serve."}]}', 1, 0),
+(1, 'Coconut Fish Curry', 'Coconut Fish Curry', 1, 'This colourful hake and prawn one-pot has Thai and Indian inspired flavours and is quick enough for midweek - ready in under 30 minutes', 4, '{"compositions":[     {"composition":"1 tbsp vegetable oil"},     {"composition":"1 onion, finely chopped"},     {"composition":"thumb-sized piece ginger, finely grated"},     {"composition":"3 garlic cloves, crushed"},     {"composition":"1 tsp shrimp paste"},     {"composition":"1 small red chilli"},          {"composition":"2 lemongrass stalks, split, then bruised with a rolling pin"},     {"composition":"1 heaped tbsp medium curry powder"},     {"composition":"1 heaped tbsp light muscovado sugar"},     {"composition":"small bunch coriander, stems finely chopped"},     {"composition":"150g coconut milk"},     {"composition":"450g skinless hake fillets, cut into rectangles, roughly credit card size"},     {"composition":"220g pack frozen raw whole prawns (we used Big & Juicy Tiger Prawns, which are sustainably fished)"},     {"composition":"1 lime, halved"},     {"composition":"cooked rice, to serve"} ]}', '{"howtos":[     {"howto":"Heat the oil in a wide, lidded frying pan, then soften the onion for 5 mins. Increase the heat a little, stir in the ginger, garlic, shrimp paste, chilli and lemongrass, and cook for 2 mins. Add the curry powder and sugar, and keep stirring. When the sugar starts to melt and everything starts to clump together, add the coriander stems, coconut milk and 2 tbsp water, then bring to a simmer."},     {"howto":"Add the fish to the sauce, tuck the prawns in here and there, then squeeze over half the lime. Pop on the lid and simmer for 5 mins more or until the hake is just cooked and flaking, and the prawns are pink through. Taste for seasoning, adding a squeeze more lime to the sauce if you like. Scatter over the coriander leaves and serve with rice."} ]}', 2, 0),
+(2, 'Spicy Prawn Soup', 'Spicy Prawn Soup', 1, 'A quick and spicy wok-based soup means one pan, zero fuss and supper''s on the table in 20 minutes', 4, '{"compositions":[     {"composition":"1 tbsp sunflower oil"},     {"composition":"300g bag crunchy stir-fry vegetables"},     {"composition":"140g shiitake mushrooms, sliced"},     {"composition":"2 tbsp Thai green curry paste"},     {"composition":"400g can reduced-fat coconut milk"},     {"composition":"200ml vegetable or fish stock"},     {"composition":"300g medium straight-to-wok noodles"},     {"composition":"200g bag large, raw prawns"} ]}', '{"howtos":[    {"howto":"Heat a wok, add the oil, then stir-fry the veg and mushrooms for 2-3 mins. Take out and set aside, then tip the curry paste into the pan and fry for 1 min."},    {"howto":"Pour in the coconut milk and stock. Bring to the boil, drop in the noodles and prawns, then reduce the heat and simmer for 4 mins until the prawns are cooked through. Stir in the veg, then serve."}]}', 1, 0),
 (3, 'Sushi rice bowl with beef, egg & chilli sauce', 'with beef, egg & chilli sauce', 4, 'Sticky and delicious, sushi rice is more versatile than you may think and is great in a stir fry.', 2, '{"compositions":[    {"composition":"140g sushi rice"},    {"composition":"250g/9oz rump steak, thinly sliced"},    {"composition":"1 garlic clove, chopped"},    {"composition":"1 tbsp soy sauce"},    {"composition":"good pinch sugar"},    {"composition":"2 tbsp sesame oil"},    {"composition":"2 eggs"},    {"composition":"1 large carrot, cut into long matchsticks"},    {"composition":"1 large courgette, cut into long matchsticks"},    {"composition":"2 tbsp sweet and spicy chilli sauce"}]}', '{"howtos":[\r\n    {"howto":"Boil the sushi rice in a large pan with plenty of water – it should take about 8-10 mins – until it is just cooked and still has a bite to it. Drain, place back in the pan, cover with a lid and set aside."},\r\n    {"howto":"Mix the steak with the garlic, soy sauce, sugar and a grind of black pepper. You will need 2 frying pans or 1 frying pan and a wok: divide the oil between the 2 pans and heat until just smoking. Fry the eggs to your liking, then set aside. In the other pan, brown the beef for 1-2 mins, then remove and keep warm. Tip the vegetables into the pan, stir-fry for 1 min, then push to one side, add the rice and cook for 1 min more to heat through."},\r\n    {"howto":"Divide the rice, veg and beef between 2 bowls. Slide the eggs on top and drizzle with the chilli sauce. Each person can then toss everything together, so the egg yolk mixes with the hot rice and sauce."}\r\n]}', 2, 4),
 (4, 'Beef & bean hotpot', 'Beef & bean hotpot', 4, 'A hearty one pot meal to satisfy the whole family', 8, '{"compositions":[     {"composition":"750g lean minced beef"},     {"composition":"1 beef stock cube"},     {"composition":"2 large onions, roughly chopped"},     {"composition":"450g carrots, peeled and thickly sliced"},     {"composition":"1¼kg/2lb 12oz potato, peeled and cut into large chunks"},     {"composition":"2 400g cans baked beans"},     {"composition":"Worcestershire sauce or Tabasco sauce, to taste"},     {"composition":"large handful of parsley, roughly chopped"} ]}\r\n', '{"howtos":[\r\n    {"howto":"Heat a large non-stick pan, add the beef then fry over a medium-high heat until browned, stirring often and breaking up any lumps with a spoon. Crumble in the stock cube and mix well."},\r\n    {"howto":"Add the vegetables, stir to mix with the beef and pour in enough boiling water (about 1.3 litres) to cover. Bring to the boil, then lower the heat and stir well. Cover the pan and simmer gently for about 30 mins or until the vegetables are tender."},\r\n    {"howto":"Tip in the baked beans, sprinkle with Worcestershire sauce or Tabasco to taste, stir well and heat through. Taste for seasoning and sprinkle with parsley. Serve with extra Worcestershire sauce or Tabasco, for those who like a peppery hot taste."}\r\n]}', 2, 5),
 (5, 'Smoky beef stew', 'Smoky beef stew', 4, 'Enjoy this simple stew for dinner, then pack into boxes to keep you going for lunches', 6, '{"compositions":[     {"composition":"1kg stewing beef, cut into large chunks"},     {"composition":"2 onions, chopped"},     {"composition":"800g (2 cans) chopped tomatoes"},     {"composition":"2 tsp each sweet paprika, ground cumin and mild chilli powder"},     {"composition":"2 tbsp red or white wine vinegar"},     {"composition":"2 tbsp caster sugar"},     {"composition":"400g can butter beans, rinsed and drained"} ]}', '{"howtos":[\r\n    {"howto":"Heat oven to 160C/ 140C fan/gas 3. Mix the beef, onions, tomatoes, spices, vinegar and sugar in a casserole dish. Cover and bake for 2½ hrs. Stir in the beans and bake for 30 mins more (with the lid off if the casserole is a little wet or lid on if good consistency), until the beef is tender."},\r\n    {"howto":"Cool, then freeze in 6-8 portions in small food bags or plastic containers. Defrost in microwave or overnight in fridge, then heat in the morning and transfer to a thermos container, or heat in the microwave at lunchtime."}\r\n]}', 3, 3),
@@ -605,7 +706,7 @@ MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=106;
+MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=107;
 --
 -- AUTO_INCREMENT for table `city`
 --
@@ -620,7 +721,7 @@ MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `guest_cart`
 --
@@ -640,12 +741,12 @@ MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `product_size_price`
 --
 ALTER TABLE `product_size_price`
-MODIFY `id_product_size_price` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
+MODIFY `id_product_size_price` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
 --
 -- AUTO_INCREMENT for table `product_type`
 --
