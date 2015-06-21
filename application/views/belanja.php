@@ -56,15 +56,17 @@
 				<ul class="dropdown-menu">
 				  <li><a href="<?php echo site_url().'/c_main/belanja/1' ?>">Buah</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/belanja/2' ?>">Sayur dan Umbi</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/2' ?>">Sayur, Umbi, Jamur</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/belanja/3' ?>">Daging</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/3' ?>">Ayam, Daging, Ikan, Telur</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/belanja/4' ?>">Telor</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/4' ?>">Bahan Memasak</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/belanja/5' ?>">Makanan</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/5' ?>">Susu dan Olahan Susu</a></li>
 				  <li class="divider"></li>
-				  <li><a href="<?php echo site_url().'/c_main/belanja/6' ?>">Minuman</a></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/6' ?>">Makanan</a></li>
+				  <li class="divider"></li>
+				  <li><a href="<?php echo site_url().'/c_main/belanja/7' ?>">Minuman</a></li>
 				 </ul>
 			</li>
           	<li class="dropdown">
@@ -104,10 +106,11 @@
 					<ul class="nav navbar-nav">  
 					    <li><a href="<?php echo site_url().'/c_main/belanja/1' ?>">BUAH</a></li>
 					    <li><a href="<?php echo site_url().'/c_main/belanja/2' ?>">SAYUR & UMBI</a></li>
-					    <li><a href="<?php echo site_url().'/c_main/belanja/3' ?>">DAGING</a></li>
-					    <li><a href="<?php echo site_url().'/c_main/belanja/4' ?>">TELUR</a></li>
-						<li><a href="<?php echo site_url().'/c_main/belanja/5' ?>">MAKANAN</a></li>
-						<li><a href="<?php echo site_url().'/c_main/belanja/6' ?>">MINUMAN</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/belanja/3' ?>">AYAM, DAGING, IKAN & TELUR</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/belanja/4' ?>">BAHAN MEMASAK</a></li>
+					    <li><a href="<?php echo site_url().'/c_main/belanja/5' ?>">SUSU DAN OLAHAN SUSU</a></li>
+						<li><a href="<?php echo site_url().'/c_main/belanja/6' ?>">MAKANAN</a></li>
+						<li><a href="<?php echo site_url().'/c_main/belanja/7' ?>">MINUMAN</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -130,16 +133,20 @@
 					  		echo 'BUAH';
 					  		break;
 					  	
-					  	case 'sayur-umbi':
-					  		echo 'SAYUR-UMBI';
+					  	case 'sayur, umbi, jamur':
+					  		echo 'SAYUR-UMBI-JAMUR';
 					  		break;
 
-					  	case 'daging':
-					  		echo 'DAGING';
+					  	case 'ayam, daging, ikan, telur':
+					  		echo 'AYAM - DAGING - IKAN - TELUR';
 					  		break;
 
-					  	case 'telur':
-					  		echo 'TELUR';
+					  	case 'bahan memasak':
+					  		echo 'BAHAN MEMASAK';
+					  		break;
+
+					  	case 'susu dan olahan susu':
+					  		echo 'SUSU DAN OLAHAN SUSU';
 					  		break;
 
 					  	case 'makanan':

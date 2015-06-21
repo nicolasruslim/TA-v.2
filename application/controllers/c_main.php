@@ -39,15 +39,7 @@ class C_main extends CI_Controller {
         $this->load->model('m_guest');
         $session = array('id' => $this->m_guest->newGuest());
         $session_data = $this->session->set_userdata('logged_guest', $session);
-        $this->load->model('modeldata');
-        $data['products']=$this->modeldata->get_popular_products();
-        $data['products_amount']= $this->modeldata->get_popular_products_amount();
-        $data['product_size_price']=$this->modeldata->get_product_size_price();
-        $data['city_list']=$this->modeldata->get_city_list();
-        $data['id'] = $session_data['id'];
-        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
-        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
-        $this->load->view('home',$data);
+        redirect('c_main', 'refresh');
       }
  	}
  

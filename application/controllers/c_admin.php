@@ -15,12 +15,12 @@ class C_admin extends CI_Controller{
 	{
 		$this->load->model('m_admin');
 		$data['products'] = $this->m_admin->view_product();
-		$this->load->view('admin_view_product', $data);	
+		$this->load->view('admin/admin_view_product', $data);	
 	}
 
 	public function insert_product(){
 		$this->load->helper('form');
-		$this->load->view('admin_insert_product');	
+		$this->load->view('admin/admin_insert_product');	
 	}
 
 	public function insert_product_process(){
@@ -46,8 +46,8 @@ class C_admin extends CI_Controller{
 			if($this->upload->do_upload())
 			{
 				$this->load->model('m_admin');
-				$upload_data = $this->upload->data(); 
-  				$file_name =   $upload_data['raw_name'];
+				$upload_data = $this->upload->data();
+  				$file_name =  $upload_data['raw_name'];
 				$data = array(
 					'product_name' => $this->input->post('product_name'),
 					'product_brand' => $this->input->post('product_brand'),
@@ -55,6 +55,7 @@ class C_admin extends CI_Controller{
 					'product_type_id' => $this->input->post('product_type_id'),
 					'product_size' => $this->input->post('product_size'),
 					'product_price' => $this->input->post('product_price'),
+					'upload_data' => $this->upload->data(),
 					);
 				$this->m_admin->insert_product_process($data);
 				$this->load->view('upload_success',$data);

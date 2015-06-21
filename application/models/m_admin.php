@@ -40,10 +40,13 @@ class M_admin extends CI_Model{
 		$product_brand= $data['product_brand'];
 		$product_image= $data['product_image'];
 		$product_type_id= $data['product_type_id'];
-		$product_size1= $data['product_size'];
-		$product_price1= $data['product_price'];
-		$sql = "INSERT INTO product (product_name, product_brand, product_image, product_type_id, product_size1, product_price1) VALUES ('$product_name','$product_brand', '$product_image', '$product_type_id', '$product_size1', '$product_price1')";
-		$query = $this->db->query($sql);
+		$product_size= $data['product_size'];
+		$product_price= $data['product_price'];
+		$sql_product = "INSERT INTO product (product_name, product_brand, product_image, product_type_id) VALUES ('$product_name','$product_brand', '$product_image', '$product_type_id')";
+		$query = $this->db->query($sql_product);
+		$product_id=$this->db->insert_id();
+		$sql_product_size_price = "INSERT INTO product_size_price (product_id, product_size, product_price) VALUES ('$product_id','$product_size', '$product_price')";
+		$this->db->query($sql_product_size_price);
 	}	
 
 	function get_product_size_price(){
