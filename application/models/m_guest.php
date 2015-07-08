@@ -24,6 +24,22 @@ Class M_guest extends CI_Model
     return $this->db->insert_id();
  }
 
+ function insert_product_into_cart($data)
+  {
+    $guest_id= $data['guest_id'];
+    $product_id= $data['product_id'];
+    $id_product_size_price= $data['id_product_size_price'];
+    $quantity= $data['quantity'];
+    $sql = "INSERT INTO guest_cart (guest_id, product_id, id_product_size_price, quantity, status) VALUES ('$guest_id','$product_id', '$id_product_size_price', '$quantity', 'cart')";
+    $query = $this->db->query($sql);
+  }
+
+  function get_items_in_cart($id)
+  {
+    $query = $this->db->query("SELECT * FROM guest_cart ca, product pr, product_size_price psp WHERE ca.guest_id = $id AND ca.product_id = pr.product_id AND ca.id_product_size_price = psp.id_product_size_price AND ca.status = 'cart'");
+    return $query->result();
+  }
+
  function get_amount_item_in_cart($id)
   {
     $query = $this->db->query("SELECT * FROM guest_cart WHERE guest_id = $id AND status='cart'");

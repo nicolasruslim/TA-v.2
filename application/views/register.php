@@ -15,9 +15,9 @@
 	<p>Username : <input type="text" name="username"></p>
 	<p>Password : <input type="password" name="password"></p>
 	<p>Apakah Anda menderita salah satu dari penyakit berikut ?<br>
-	<input type="checkbox" name="penyakit[]" value="jantung">Sakit Jantung<br>
-	<input type="checkbox" name="penyakit[]" value="diabetes">Diabetes<br>
-	<input type="checkbox" name="penyakit[]" value="hipertensi">Hipertensi<br></p>
+	<?php foreach ($illness as $ill) { ?>
+		<input type="checkbox" name="penyakit[]" value="<?php echo $ill->illness_id; ?>"><?php echo $ill->illness_name; ?><br>	
+	<?php } ?>
 	<button type="submit">Daftar</button>
 </body>
 </html>

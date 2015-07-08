@@ -116,5 +116,66 @@ class C_admin extends CI_Controller{
 			$this->load->view('file_view', $error);
 		}
 	}
+
+	public function generate_similarity(){
+		$this->load->model('m_admin');
+		$this->load->model('modeldata');
+		$recipes = $this->modeldata->get_all_recipes_array();
+		$i = 0;
+		$j = 1;
+		$recipe_amount = count($recipes);
+		while ($i < $recipe_amount) {
+			while ($j < $recipe_amount) {
+				$recipe1_id = $recipes[$i]['recipe_id'];
+				$recipe2_id = $recipes[$j]['recipe_id'];
+				$ratings1 = $this->m_admin->get_ratings($recipe1_id);
+				$ratings2 = $this->m_admin->get_ratings($recipe2_id);
+				$dot_product = 0;
+				$magnitude1 = 0;
+				$magnitude2 = 0;
+				$same_customer_id=array();
+
+				foreach ($ratings1 as $rating1) {
+					foreach ($ratings2 as $rating2) {
+						if ($rating1['customer_id']==$rating2['customer_id']) {
+							$same_customer_id[]= $rating1['customer_id'];
+							$dot_product = $dot_product + ($rating1['rating']*$rating2['rating']);
+							echo 'dot_product = '.$dot_product.'<br>';
+						}
+					}
+					if(!empty($same_customer_id)){
+						if(in_array($rating1['customer_id'], $same_customer_id)){
+							$magnitude1 = $magnitude1+($rating1['rating']*$rating1['rating']);
+						}
+						foreach ($ratings2 as $rating2) {
+							if(in_array($rating2['customer_id'], $same_customer_id)){
+								$magnitude2 = $magnitude2+($rating2['rating']*$rating2['rating']);
+							}
+						}
+					}
+					
+				}
+				$magnitude1 = sqrt($magnitude1);
+				$data['magnitude1'] = $magnitude1;
+				echo $recipe1_id.'magnitude1 = '.$magnitude1.'<br>';
+				$magnitude2 = sqrt($magnitude2);
+				echo $recipe2_id.'magnitude2 = '.$magnitude2.'<br>';
+				$divisor = $magnitude1*$magnitude2;
+				if($divisor == 0 ){
+					$similarity = 0;
+				}
+				else{
+					$similarity = $dot_product/$divisor;	
+				}
+				echo 'similarity = '.$similarity.'<br><br><br><br>';
+				$this->m_admin->insert_similarity($recipe1_id, $recipe2_id, $similarity);
+				$j++;
+			}
+			$i++;
+			$j = $i+1;
+		}
+		//$this->load->view('similarity', $data);
+		//$this->load->view('admin/similarity_generated');	
+	}
 }
 ?>

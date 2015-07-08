@@ -40,6 +40,18 @@ class Modeldata extends CI_Model{
 		return $query->result();
 	}
 
+	function get_all_recipes()
+	{
+		$query = $this->db->query("SELECT * FROM recipe");
+		return $query->result();
+	}	
+
+	function get_all_recipes_array()
+	{
+		$query = $this->db->query("SELECT * FROM recipe");
+		return $query->result_array();
+	}	
+
 	function get_list_recipes($recipe_type_id)
 	{
 		$query = $this->db->query("SELECT * FROM recipe r, recipe_type rt WHERE r.id_recipe_type = rt.id_recipe_type AND r.id_recipe_type = $recipe_type_id ");
@@ -102,6 +114,12 @@ class Modeldata extends CI_Model{
 		$query = $this->db->query("INSERT INTO recipe_customer_rating (recipe_id, customer_id, rating) values ($recipe_id, $customer_id, $rating_value)");
 	}	
 
+	function get_customer_rating($customer_id, $recipe_id)
+	{
+		$query = $this->db->query("SELECT * FROM recipe_customer_rating WHERE recipe_id = $recipe_id AND customer_id = $customer_id");
+		return $query->row();	
+	}
+
 	function get_rating_status($customer_id, $recipe_id)
 	{
 		$query = $this->db->query("SELECT * FROM recipe_customer_rating WHERE recipe_id = $recipe_id AND customer_id = $customer_id");
@@ -111,6 +129,22 @@ class Modeldata extends CI_Model{
 		else{
 			return 0;
 		}
+	}
+
+	function get_illness(){
+		$query = $this->db->query("SELECT * FROM illness");
+		return $query->result();	
+	}
+
+	//Menjadikan recipe_id sebagai id dari resep yang dibandingkan
+	//Item pembanding yang diperoleh memiliki kesamaan > 0.5 terhadap item dibandingkan
+	function get_similar_recipes($recipe_id){
+		$query = $this->db->query("SELECT * FROM recipe_similarity WHERE recipe1_id = $recipe_id AND similarity >= 0.5");
+		return $query->result();	
+	}
+
+	function generate_prediction($customer_id){
+		$query = $this->db->query("INSERT INTO recipe_customer_rating (recipe_id, customer_id, rating) values ($recipe_id, $customer_id, $rating_value)");
 	}
 }
 ?>

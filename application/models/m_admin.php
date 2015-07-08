@@ -79,5 +79,26 @@ class M_admin extends CI_Model{
 			$query = $this->db->query($sql);
 		}
 	}	
+
+	function get_ratings($recipe_id)
+	{	
+		$sql = "SELECT * FROM recipe_customer_rating WHERE recipe_id=$recipe_id";
+		$query = $this->db->query($sql);
+		$result =  $query->result_array();
+		return $result;
+	}
+
+	function insert_similarity($recipe1_id, $recipe2_id, $similarity)
+	{	
+		$sql = "SELECT recipe1_id, recipe2_id FROM recipe_similarity";
+		$query = $this->db->query($sql);
+		if(empty($query)){
+			$sql = "INSERT INTO recipe_similarity (recipe1_id, recipe2_id, similarity) VALUES ('$recipe1_id','$recipe2_id', '$similarity')";
+			$this->db->query($sql);	
+		}else{
+			$sql = "UPDATE recipe_similarity SET similarity='$similarity' WHERE recipe1_id = '$recipe1_id' AND recipe2_id = '$recipe2_id'";
+			$this->db->query($sql);			
+		}
+	}
 }
 ?>

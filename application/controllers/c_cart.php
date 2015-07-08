@@ -24,16 +24,13 @@ class C_cart extends CI_Controller {
 	        $this->load->model('m_guest');
 	        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
 	        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
+	        $data['items_in_cart']=$this->m_guest->get_items_in_cart($session_data['id']);
 	        $this->load->view('view_cart',$data);
       	}else{
 	        $this->load->model('m_guest');
 	        $session = array('id' => $this->m_guest->newGuest());
 	        $session_data = $this->session->set_userdata('logged_guest', $session);
-	        $this->load->model('m_guest');
-	        $data['id'] = $session_data['id'];
-	        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
-	        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
-	        $this->load->view('view_cart',$data);
+	        redirect('c_cart', 'refresh');
       }
  	}
 
@@ -44,15 +41,13 @@ class C_cart extends CI_Controller {
 
 		if($this->session->userdata('logged_in'))
    		{
-   			$session_data = $this->session->userdata('logged_in');
+     		$session_data = $this->session->userdata('logged_in');
      		$data['username'] = $session_data['username'];
-
-   			$this->load->helper(array('form', 'url'));
+     		$this->load->helper(array('form', 'url'));
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('quantity', 'Quantity', 'greater_than[0]');
 
-			if ($this->form_validation->run() == FALSE)
-			{
+			if ($this->form_validation->run() == FALSE){
 				$this->load->view('c_main');
 			}
 			else
@@ -69,12 +64,36 @@ class C_cart extends CI_Controller {
 				$this->m_cart->insert_product_into_cart($data_input);
 				redirect('c_cart', 'refresh');
 			}
-		}
-		else
-   		{
-     		//If no session, redirect to login page
-     		redirect('c_login', 'refresh');
-   		}
+   		}elseif ($this->session->userdata('logged_guest')){
+	        $session_data = $this->session->userdata('logged_guest');
+	        $data['username'] = 'Guest';
+	        $this->load->helper(array('form', 'url'));
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('quantity', 'Quantity', 'greater_than[0]');
+
+			if ($this->form_validation->run() == FALSE){
+				redirect('c_main', 'refresh');
+			}
+			else
+			{				
+				$this->load->model('m_guest');
+				$id_product_size_price = $_POST['product_size_price'];
+				$quantity = $_POST['quantity'];
+				$data_input = array(
+					'guest_id' => $session_data['id'],
+					'product_id' => $product_id,
+					'id_product_size_price' => $id_product_size_price ,
+					'quantity' => $quantity,
+				);
+				$this->m_guest->insert_product_into_cart($data_input);
+				redirect('c_cart', 'refresh');
+			}
+      	}else{
+	        $this->load->model('m_guest');
+	        $session = array('id' => $this->m_guest->newGuest());
+	        $session_data = $this->session->set_userdata('logged_guest', $session);
+	        redirect('c_cart', 'refresh');
+      	}
 	}
 
 	public function insert_product_composition_into_cart($recipe_id)

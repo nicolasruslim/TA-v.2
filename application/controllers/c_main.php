@@ -83,16 +83,7 @@ class C_main extends CI_Controller {
         $this->load->model('m_guest');
         $session = array('id' => $this->m_guest->newGuest());
         $session_data = $this->session->set_userdata('logged_guest', $session);
-        $this->load->model('modeldata');
-        $data['products']=$this->modeldata->get_products($product_type_id);
-        $data['products_amount']= $this->modeldata->get_popular_products_amount();
-        $data['product_size_price']=$this->modeldata->get_product_size_price();
-        $data['city_list']=$this->modeldata->get_city_list();
-        $data['id'] = $session_data['id'];
-        $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
-        $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
-        $data['product_category_name'] = $this->modeldata->get_category_name($product_type_id);
-        $this->load->view('belanja',$data);
+        redirect('c_main/belanja/'.$product_type_id, 'refresh');
       }
    	}
 
@@ -124,14 +115,7 @@ class C_main extends CI_Controller {
       $this->load->model('m_guest');
       $session = array('id' => $this->m_guest->newGuest());
       $session_data = $this->session->set_userdata('logged_guest', $session);
-      $this->load->model('modeldata');
-      $data['city_list']=$this->modeldata->get_city_list();
-      $data['id'] = $session_data['id'];
-      $data['amount_item_in_cart']=$this->m_guest->get_amount_item_in_cart($session_data['id']);
-      $data['total_price_in_cart']= $this->m_guest->get_total_price_in_cart($session_data['id']);
-      $data['recipes']=$this->modeldata->get_list_recipes($recipe_type_id);
-      $data['recipe_category_name'] = $this->modeldata->get_category_name2($recipe_type_id);
-      $this->load->view('resep',$data);
+      redirect('c_main/daftar_resep/'.$recipe_type_id, 'refresh');
     }
 	}
 
@@ -160,14 +144,7 @@ class C_main extends CI_Controller {
       $this->load->model('m_guest');
       $session = array('id' => $this->m_guest->newGuest());
       $session_data = $this->session->set_userdata('logged_guest', $session);
-      $this->load->model('modeldata');
-      $data['rating_status'] = $this->modeldata->get_rating_status($session_data['id'], $recipe_id);
-      $this->load->model('modeldata');
-      $data['city_list']=$this->modeldata->get_city_list();
-      $data['id'] = $session_data['id'];
-      $data['recipe']=$this->modeldata->get_recipe_detail($recipe_id);
-      $data['recipe_composition']=$this->modeldata->get_recipe_composition($recipe_id);
-      $this->load->view('detail_resep',$data);
+      redirect('c_main/detail_resep/'.$recipe_id, 'refresh');
     }
 	}
 
@@ -195,7 +172,9 @@ class C_main extends CI_Controller {
   }
 
   public function register(){
-    $this->load->view('register');
+    $this->load->model('modeldata');
+    $data['illness'] = $this->modeldata->get_illness();
+    $this->load->view('register', $data);
   }
 
   public function add_customer(){
@@ -235,6 +214,41 @@ class C_main extends CI_Controller {
         //If no session, redirect to login page
         redirect('c_login', 'refresh');
     }   
+  }
+
+  public function generate_prediction(){
+    $session_data = $this->session->userdata('logged_in');
+    $data['username'] = $session_data['username'];
+    $data['id'] = $session_data['id'];
+    $this->load->model('modeldata');
+    $recipes = $this->modeldata->get_all_recipes();
+    foreach ($recipes as $recipe) {
+      //Cek apakah user sudah pernah melakukan rating terhadap resep ini
+      // Jika sudah maka lewatkan
+      $rating_status = $this->modeldata->get_rating_status($data['id'],$recipe->recipe_id);
+      if(!($rating_status)){
+        $dividend = 0;
+        $divisor = 0;
+        //Cari sum dari nilai similarity antar item dikalikan rating yang user berikan
+        $similar_recipes = $this->modeldata->get_similar_recipes($recipe->recipe_id);
+        foreach ($similar_recipes as $similar_recipe) {
+          $user_rating = $this->modeldata->get_customer_rating($data['id'],$recipe->recipe_id);
+          if(!empty($user_rating)){
+            $dividend = $dividend + ($similar_recipe->similarity * $user_rating->rating );
+            $divisor = $divisor + abs($similar_recipe->similarity);
+          }
+        }
+        if($divisor == 0 ){
+            $prediction_value = 0;
+        }
+        else{
+          $prediction_value = $dividend/$divisor;
+        }
+        echo 'Customer : '.$data['id'].'<br>';
+        echo 'Recipe : '.$recipe->recipe_id.'<br>';
+        echo 'Prediction : '.$prediction_value.'<br><br><br>';
+      }
+    }
   }
 }
 ?>

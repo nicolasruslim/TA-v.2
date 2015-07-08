@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 21, 2015 at 05:09 PM
+-- Generation Time: Jul 05, 2015 at 02:41 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `customer` (
   `illness` varchar(200) NOT NULL,
   `customer_username` varchar(30) NOT NULL,
   `customer_password` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
@@ -127,7 +127,57 @@ CREATE TABLE IF NOT EXISTS `customer` (
 INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_email`, `customer_address`, `customer_hp`, `customer_birthdate`, `illness`, `customer_username`, `customer_password`) VALUES
 (1, 'Nicolas Novian Ruslim', 'nicolasruslim1@gmail.com', 'Jalan Sekeloa Timur No. 62, Bandung', '087823297974', '1993-11-29', '', 'nicolasruslim', '93da7ff0080ed80c4176b99cf2ad459a'),
 (2, 'Marsalita Irine', 'marsalitairine@gmail.com', 'Jember', '08123456788', '2015-08-11', '', 'marsalitairine', '90d840be792c6b4b8121d2785a136dc1'),
-(6, 'Andy Suroso', 'andy@gmail.com', 'Medan', '08123123123', '2015-05-29', 'jantung,diabetes,hipertensi,', 'andy', 'da41bceff97b1cf96078ffb249b3d66e');
+(6, 'Andy Suroso', 'andy@gmail.com', 'Medan', '08123123123', '2015-05-29', 'Jantung,Diabetes,Hipertensi,', 'andy', 'da41bceff97b1cf96078ffb249b3d66e'),
+(7, 'C1-Jantung', 'c1@keranjang.co', 'sekeloa', '123456', '1970-02-05', 'Jantung,', 'c1', 'a9f7e97965d6cf799a529102a973b8b9'),
+(8, 'C2-Diabetes', 'c2@keranjang.co', 'sekeloa', '123456', '1972-04-07', 'Diabetes,', 'c2', '9ab62b5ef34a985438bfdf7ee0102229'),
+(9, 'C3-Hipertensi', 'c3@keranjang.co', 'sekeloa', '123456', '1971-05-08', 'Hipertensi,', 'c3', '0a3d72134fb3d6c024db4c510bc1605b'),
+(10, 'C6-Hipertensi', 'c6@keranjang.co', 'sekeloa', '123456', '1969-06-09', 'Hipertensi,', 'c6', '5a34d1edaea4e32871b6f7503ad4727e'),
+(11, 'C9-Hipertensi', 'c9@keranjang.co', 'sekeloa', '123456', '1969-05-08', 'Hipertensi,', 'c9', 'a3098322f75f2a3e66164d0fb830cf5f'),
+(12, 'C12-Hipertensi', 'c12@keranjang.co', 'sekeloa', '123456', '1969-05-08', 'Hipertensi,', 'c12', '5c385d6d334ea0a9301bd28ea067aba7'),
+(13, 'C15-Hipertensi', 'c15@keranjang.co', 'sekeloa', '123456', '1971-06-09', 'Hipertensi,', 'c15', 'd4e99aaa1f75eb02a66f89dc95ca6e3c'),
+(14, 'C18-Hipertensi', 'c18@keranjang.co', 'sekeloa', '123456', '1980-09-09', 'Hipertensi,', 'c18', '856deecf45fa4ace6b5b49bd4ad54acf'),
+(15, 'C21-Hipertensi', 'c21@keranjang.co', 'sekeloa', '123456', '1981-09-09', 'Hipertensi,', 'c21', 'a4157eabf48518bb189351bcf3b52e21'),
+(16, 'C24-Hipertensi', 'c24@keranjang.co', 'sekeloa', '123456', '1987-10-11', 'Hipertensi,', 'c24', 'f13904a0edbe91cc85cfd7b824d9b801'),
+(17, 'C27-Hipertensi', 'c27@keranjang.co', 'sekeloa', '123456', '1982-09-06', 'Hipertensi,', 'c27', 'f1852259718f260ca67402fd8acb42f8'),
+(18, 'C30-Hipertensi', 'c30@keranjang.co', 'sekeloa', '123456', '1981-12-06', 'Hipertensi,', 'c30', 'd81fee4887336b1dba216cfff99bd9e6'),
+(19, 'C4-Jantung', 'c4@keranjang.co', 'sekeloa', '123456', '1975-11-04', 'Jantung,', 'c4', 'cb7524d792327e4c443d619de5c71a7a'),
+(20, 'C7-Jantung', 'c7@keranjang.co', 'sekeloa', '123456', '1976-11-05', 'Jantung,', 'c7', '4d3a21d8c684c09c19b93be911827fd5'),
+(21, 'C10-Jantung', 'c10@keranjang.co', 'sekeloa', '123456', '1975-12-06', 'Jantung,', 'c10', '47cfc27c36f07700a44a24887ded7cec'),
+(22, 'C13-Jantung', 'c13@keranjang.co', 'sekeloa', '123456', '1977-12-05', 'Jantung,', 'c13', 'd0a4f1984f1ee1f764a04b6536d96b1b'),
+(23, 'C16-Jantung', 'c16@keranjang.co', 'sekeloa', '123456', '1979-12-05', 'Jantung,', 'c16', 'e77aa1b8a24da9674c86f83bb588777b'),
+(24, 'C19-Jantung', 'c19@keranjang.co', 'sekeloa', '123456', '1976-01-04', 'Jantung,', 'c19', '647e24fdbfcbc54e7dbb98e11c45059b'),
+(25, 'C22-Jantung', 'c22@keranjang.co', 'sekeloa', '123456', '1977-02-03', 'Jantung,', 'c22', '99ff292e23794ad843b5d75c459ed289'),
+(26, 'C25-Jantung', 'c25@keranjang.co', 'sekeloa', '123456', '1975-03-02', 'Jantung,', 'c25', '5f7478e5278270a0851340d2deda3943'),
+(27, 'C28-Jantung', 'c28@keranjang.co', 'sekeloa', '123456', '1978-04-01', 'Jantung,', 'c28', '074d5d17d831582ffcaf1edde78d2adb'),
+(28, 'C5-Diabetes', 'c5@keranjang.co', 'sekeloa', '123456', '1976-05-01', 'Diabetes,', 'c5', '25ea1682e16466c0667abdc095920f6c'),
+(29, 'C8-Diabetes', 'c8@keranjang.co', 'sekeloa', '123456', '1978-06-02', 'Diabetes,', 'c8', '7cd1d2b54911b95b06b1c423bd551f2f'),
+(30, 'C11-Diabetes', 'c11@keranjang.co', 'sekeloa', '123456', '1981-08-07', 'Diabetes,', 'c11', 'a9f7e97965d6cf799a529102a973b8b9'),
+(31, 'C14-Diabetes', 'c14@keranjang.co', 'sekeloa', '123456', '1982-10-18', 'Diabetes,', 'c14', '0ae79a56a8ffad7be7d27b4ab266a912'),
+(32, 'C17-Diabetes', 'c17@keranjang.co', 'sekeloa', '123456', '1987-12-20', 'Diabetes,', 'c17', '4d41ca3ae901a60c9d82d1eb80b58661'),
+(33, 'C20-Diabetes', 'c20@keranjang.co', 'sekeloa', '123456', '1984-11-27', 'Diabetes,', 'c20', '801886d15a07a0f786169c3fa4c54b34'),
+(34, 'C23-Diabetes', 'c23@keranjang.co', 'sekeloa', '123456', '1985-09-30', 'Diabetes,', 'c23', 'de118786b5cddc3188d04a75e15d854e'),
+(35, 'C26-Diabetes', 'c26@keranjang.co', 'sekeloa', '123456', '1983-10-30', 'Diabetes,', 'c26', '8557acbd605dce2d0a6106c47bcd2338'),
+(36, 'C29-Diabetes', 'c29@keranjang.co', 'sekeloa', '123456', '1980-11-23', 'Diabetes,', 'c29', '081b16bcd52a14c866fe2ab1ae3c065a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctor`
+--
+
+CREATE TABLE IF NOT EXISTS `doctor` (
+`doctor_id` int(11) NOT NULL,
+  `doctor_name` varchar(100) NOT NULL,
+  `doctor_username` varchar(30) NOT NULL,
+  `doctor_password` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `doctor`
+--
+
+INSERT INTO `doctor` (`doctor_id`, `doctor_name`, `doctor_username`, `doctor_password`) VALUES
+(1, 'Gunawan Junaedi', 'gunawan', 'dc96b97c4ffbead46ca25ef5d4b77cbe');
 
 -- --------------------------------------------------------
 
@@ -138,7 +188,7 @@ INSERT INTO `customer` (`customer_id`, `customer_name`, `customer_email`, `custo
 CREATE TABLE IF NOT EXISTS `guest` (
 `guest_id` int(11) NOT NULL,
   `guest_ip` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guest`
@@ -181,7 +231,27 @@ INSERT INTO `guest` (`guest_id`, `guest_ip`) VALUES
 (34, '127.0.0.1'),
 (35, '127.0.0.1'),
 (36, '127.0.0.1'),
-(37, '127.0.0.1');
+(37, '127.0.0.1'),
+(38, '127.0.0.1'),
+(39, '127.0.0.1'),
+(40, '127.0.0.1'),
+(41, '127.0.0.1'),
+(42, '127.0.0.1'),
+(43, '127.0.0.1'),
+(44, '127.0.0.1'),
+(45, '127.0.0.1'),
+(46, '127.0.0.1'),
+(47, '127.0.0.1'),
+(48, '127.0.0.1'),
+(49, '127.0.0.1'),
+(50, '127.0.0.1'),
+(51, '127.0.0.1'),
+(52, '127.0.0.1'),
+(53, '127.0.0.1'),
+(54, '127.0.0.1'),
+(55, '127.0.0.1'),
+(56, '127.0.0.1'),
+(57, '127.0.0.1');
 
 -- --------------------------------------------------------
 
@@ -196,7 +266,14 @@ CREATE TABLE IF NOT EXISTS `guest_cart` (
   `id_product_size_price` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `status` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guest_cart`
+--
+
+INSERT INTO `guest_cart` (`guest_cart_id`, `guest_id`, `product_id`, `id_product_size_price`, `quantity`, `status`) VALUES
+(1, 48, 2, 3, 3, 'cart');
 
 -- --------------------------------------------------------
 
@@ -209,6 +286,65 @@ CREATE TABLE IF NOT EXISTS `guest_orders` (
   `guest_id` int(11) NOT NULL,
   `orders_detail` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `illness`
+--
+
+CREATE TABLE IF NOT EXISTS `illness` (
+`illness_id` int(11) NOT NULL,
+  `illness_name` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `illness`
+--
+
+INSERT INTO `illness` (`illness_id`, `illness_name`) VALUES
+(1, 'Jantung'),
+(2, 'Diabetes'),
+(3, 'Hipertensi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `illness_prohibition`
+--
+
+CREATE TABLE IF NOT EXISTS `illness_prohibition` (
+`illness_prohibition_id` int(11) NOT NULL,
+  `illness_id` int(11) NOT NULL,
+  `recipe_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `illness_prohibition`
+--
+
+INSERT INTO `illness_prohibition` (`illness_prohibition_id`, `illness_id`, `recipe_id`) VALUES
+(1, 2, 1),
+(2, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `illness_recommendation`
+--
+
+CREATE TABLE IF NOT EXISTS `illness_recommendation` (
+`illness_recommendation_id` int(11) NOT NULL,
+  `illness_id` int(11) NOT NULL,
+  `recipe_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `illness_recommendation`
+--
+
+INSERT INTO `illness_recommendation` (`illness_recommendation_id`, `illness_id`, `recipe_id`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -244,7 +380,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `product_brand` varchar(50) NOT NULL,
   `product_image` varchar(150) NOT NULL,
   `product_type_id` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
@@ -318,7 +454,16 @@ INSERT INTO `product` (`product_id`, `product_name`, `product_brand`, `product_i
 (66, 'Courgettes', 'Sainburry', 'Sainburry_-_Courgettes', 2),
 (67, 'Green Peas - Peeled', 'Fresho', 'Fresho_-_Green_Peas_-_Peeled', 2),
 (68, 'Feta', 'Athenos', 'Athenos_-_Feta_', 5),
-(69, 'Crumbled Feta', 'Athenos', 'Athenos_-_Crumbled_Feta_', 5);
+(69, 'Crumbled Feta', 'Athenos', 'Athenos_-_Crumbled_Feta_', 5),
+(70, 'Diced Beef', 'Fresho Meats', 'diced_beef', 3),
+(71, 'Sushi Rice', 'Blue Dragon', 'Blue_Dragon_-_Sushi_Rice', 4),
+(72, 'Sirloin Steak', 'Tesco', 'Tesco_-_Sirloin_Steak', 3),
+(73, 'Soy Sauce', 'Sedaap', 'Sedaap_-_Soy_Sauce', 4),
+(74, 'Sesame Oil', 'Turn Organic', 'Turn_Organic_-_Sesame_Oil', 4),
+(75, 'Eggs', 'Fresh', 'Fresh_-_Eggs', 3),
+(76, 'Sweet and Spicy Chilli Sauce', 'Indofood', 'Indofood_-_Sweet_and_Spicy_Sauce_Chilli_Sauce', 4),
+(77, 'Habanero and Tabasco Pepper', 'American Garden', 'American_Garden_-_Habanero_and_Tabasco_Pepper', 4),
+(78, 'Parsley', 'Fresho', 'Fresho_-_Parsley', 2);
 
 -- --------------------------------------------------------
 
@@ -331,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `product_size_price` (
   `product_id` int(11) NOT NULL,
   `product_size` varchar(50) NOT NULL,
   `product_price` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product_size_price`
@@ -406,7 +551,16 @@ INSERT INTO `product_size_price` (`id_product_size_price`, `product_id`, `produc
 (66, 66, '1 pc - 200 gr', 7000),
 (67, 67, '250 gr', 6000),
 (68, 68, '226 gr', 50000),
-(69, 69, '170 gr', 70000);
+(69, 69, '170 gr', 70000),
+(70, 70, '500 gr', 45000),
+(71, 71, '500 gr', 27000),
+(72, 72, '300 gr', 45000),
+(73, 73, '135 ml', 7500),
+(74, 74, '460 gr', 40000),
+(75, 75, '6 pcs', 7000),
+(76, 76, '140 ml', 3600),
+(77, 77, '454 gr', 20000),
+(78, 78, '100 gr', 4000);
 
 -- --------------------------------------------------------
 
@@ -449,7 +603,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `recipe_howto` text NOT NULL,
   `recipe_difficulty` int(5) NOT NULL,
   `recipe_rating` int(5) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `recipe`
@@ -472,7 +626,24 @@ INSERT INTO `recipe` (`recipe_id`, `recipe_name`, `recipe_image`, `id_recipe_typ
 (14, 'Spiced broccoli with paneer', 'Spiced broccoli with paneer', 5, 'Paneer cheese makes a great ingredient for vegetarian curries. This one is spiced up with garam masala', 2, '{"compositions":[     {"composition":"1 large head broccoli, broken into florets"},     {"composition":"1 tbsp olive oil"},     {"composition":"225g pack paneer, sliced"},     {"composition":"1 tsp garam masala"},     {"composition":"1 garlic clove, finely chopped"},     {"composition":"1 red chilli, deseeded and finely chopped"},     {"composition":"zest and juice 1 lemon"},     {"composition":"naan bread, to serve"}]}', '{"howtos":[    {"howto":"Cook the broccoli in a large pan of boiling salted water for 3-4 mins. Save a little of the cooking water, then drain broccoli and set aside in the colander."},    {"howto":"Heat the oil in a large frying pan over a medium heat. Season, then fry the paneer for 2-3 mins on each side until golden. Move the paneer to the edge of the pan and add the garam masala, garlic, chilli and reserved cooking water. Cook for 2 mins, then return broccoli to the pan, with the lemon zest and juice. Toss everything together to heat through and serve with warm naan breads.)"}]}', 2, 4),
 (15, 'Thai spinach bites', 'Thai spinach bites', 5, 'These little Thai nibbles are ready in just 10 minutes', 4, '{"compositions":[     {"composition":"2 segmented and chopped limes"},     {"composition":"2cm piece chopped ginger"},     {"composition":"1 finely sliced shallot"},     {"composition":"½ chopped chilli"},     {"composition":"1 tbsp coriander leaves"},     {"composition":"2 tbsp peanuts"},     {"composition":"dash fish sauce"},     {"composition":"sprinkle sugar"},     {"composition":"8-12 baby spinach leaves"}]}', '{"howtos":[    {"howto":"Mix together limes, ginger, shallot, chilli, coriander leaves and peanuts. Season with a dash of fish sauce and a sprinkle of sugar."},    {"howto":"Lay the spinach leaves on a platter. Place a spoonful of the mix on each, then hand round and get everyone to roll them up before eating in one bite.)"}]}', 2, 3),
 (16, 'Chickpea, tomato & spinach curry', 'Chickpea, tomato & spinach curry', 5, 'A superhealthy vegan curry which accounts for 2 of your 5-a-day - and less than 200 calories per serve', 6, '{"compositions":[     {"composition":"1 onion, chopped"},     {"composition":"2 garlic cloves, chopped"},     {"composition":"3cm/1¼ in piece ginger, grated"},     {"composition":"6 ripe tomatoes"},     {"composition":"½ tbsp oil"},     {"composition":"1 tsp ground cumin"},     {"composition":"2 tsp ground coriander"},     {"composition":"1 tsp turmeric"},     {"composition":"pinch chilli flakes"},     {"composition":"1 tsp yeast extract (we used Marmite)"},     {"composition":"4 tbsp red lentils"},     {"composition":"6 tbsp coconut cream"},     {"composition":"1 head of broccoli, broken into small florets"},     {"composition":"400g can chickpeas, drained"},     {"composition":"100g bag baby spinach leaves"},     {"composition":"1 lemon, halved"},     {"composition":"1 tbsp toasted sesame seed"},     {"composition":"1 tbsp chopped cashew, to mix with the sesame seeds"}]}', '{"howtos":[    {"howto":"Put the onion, garlic, ginger and tomatoes in a food processor or blender and whizz to a purée."},    {"howto":"Heat oil in a large pan. Add the spices, fry for a few secs and add purée and yeast extract. Bubble together for 2 mins, then add lentils and coconut cream. Cook until lentils are tender, then add the broccoli and cook for 4 mins. Stir in chickpeas and spinach, squeeze over lemon and swirl through sesame and cashew mixture. Serve with brown rice, if you like.)"}]}', 3, 3),
-(17, 'Spinach with chilli & lemon crumbs', 'Spinach with chilli & lemon crumbs', 5, 'Wilt fresh greens then serve with crispy breadcrumbs, chilli and garlic for a low-fat, healthy side dish', 4, '{"compositions":[     {"composition":"25g butter"},     {"composition":"100g fresh breadcrumbs"},     {"composition":"zest 1 lemon"},     {"composition":"2 garlic cloves, crushed"},     {"composition":"1 red chilli, finely chopped"},     {"composition":"500g spinach"}]}', '{"howtos":[    {"howto":"Melt the butter in a large frying pan, then when it starts to foam, tip in the breadcrumbs, zest, garlic and chilli. Cook until golden and crunchy. Remove from the pan, season and set aside."},    {"howto":"Add the spinach to the pan and wilt, stirring. Season and serve with the crunchy crumbs sprinkled over the top.)"}]}', 2, 3);
+(17, 'Spinach with chilli & lemon crumbs', 'Spinach with chilli & lemon crumbs', 5, 'Wilt fresh greens then serve with crispy breadcrumbs, chilli and garlic for a low-fat, healthy side dish', 4, '{"compositions":[     {"composition":"25g butter"},     {"composition":"100g fresh breadcrumbs"},     {"composition":"zest 1 lemon"},     {"composition":"2 garlic cloves, crushed"},     {"composition":"1 red chilli, finely chopped"},     {"composition":"500g spinach"}]}', '{"howtos":[    {"howto":"Melt the butter in a large frying pan, then when it starts to foam, tip in the breadcrumbs, zest, garlic and chilli. Cook until golden and crunchy. Remove from the pan, season and set aside."},    {"howto":"Add the spinach to the pan and wilt, stirring. Season and serve with the crunchy crumbs sprinkled over the top.)"}]}', 2, 3),
+(18, 'Crab linguine with chilli & parsley', 'Crab linguine with chilli & parsley', 1, 'Keep it simple with this restaurant-style dish that takes a few good-quality ingredients and lets them shine', 4, '{"compositions":[     {"composition":"400g linguine"},     {"composition":"4 tbsp extra-virgin olive oil"},     {"composition":"1 red chilli, deseeded and chopped"},     {"composition":"2 garlic cloves, finely chopped"},     {"composition":"1 whole cooked crab, picked, or about 100g/4oz brown crabmeat and 200g/7oz fresh white crabmeat"},     {"composition":"small squeeze of lemon"},          {"composition":"large handful flat-leaf parsley leaves, very finely chopped"} ]}', '{"howtos":[     {"howto":"Bring a large pan of salted water to the boil and add the linguine. Give it a good stir and boil for 1 min less than the pack says. Stir well occasionally so it doesn’t stick."},     {"howto":"While the pasta cooks, gently heat 3 tbsp of olive oil with the chilli and garlic in a pan large enough to hold all the pasta comfortably."},     {"howto":"Cook the chilli and garlic very gently until they start to sizzle, then turn up the heat and add the white wine. Simmer everything until the wine and olive oil come together. Then take off the heat and add the brown crabmeat, using a wooden spatula or spoon to mash it into the olive oil to make a thick sauce."},     {"howto":"When the pasta has had its cooking time, taste a strand – it should have a very slight bite. When it’s ready, turn off the heat. Place the sauce on a very low heat and use a pair of kitchen tongs to lift the pasta from the water into the sauce.\r\nOff the heat, add the white crabmeat and parsley to the pasta with a sprinkling of sea salt. Stir everything together really well, adding a drop of pasta water if it’s starting to get claggy. Taste for seasoning and, if it needs a slight lift, add a small squeeze of lemon. Serve immediately twirled into pasta bowls and drizzled with the remaining oil."} ]}', 4, 4),
+(19, 'Crab cakes with dill mayonnaise', 'Crab cakes with dill mayonnaise', 1, 'Little fish favourites, perfect for dipping at parties or as a smart starter', 4, '{"compositions":[     {"composition":"250g potatoes, diced"},     {"composition":"300g white crabmeat"},     {"composition":"1 tbsp capers, drained and finely chopped"},     {"composition":"2 spring onions, finely chopped"},     {"composition":"zest and juice 1 lemon, plus extra wedges to serve"},     {"composition":"small bunch dill, finely chopped"},          {"composition":"4 tbsp good-quality mayonnaise"},          {"composition":"2 tbsp plain flour"},          {"composition":"1 egg, lightly beaten"},          {"composition":"85g dried breadcrumbs"},          {"composition":"sunflower oil, for shallow frying"} ]}', '{"howtos":[     {"howto":"Boil the potatoes in a large pan of salted water for about 15 mins, drain, then return to the pan and leave to steam dry for about 5 mins. Mash, then leave to cool."},     {"howto":"In a large bowl mix the crabmeat, capers, spring onions, lemon zest and half the juice with half the dill. Stir in the mashed potato with some seasoning, then shape into 12 neat round patties. Transfer these to a plate and put in the fridge for 20 mins to firm up."},     {"howto":"To make the dill mayonnaise, mix the mayo with the remaining lemon juice and dill. Put this in the fridge for later."},     {"howto":"Put the flour, egg and breadcrumbs on 3 separate plates. Dust the crab cakes all over with the flour, then dip into the egg and finally coat with breadcrumbs."},     {"howto":"Add enough sunflower oil to a shallow frying pan to come about 1cm up the side. Heat the oil, then carefully slide the crab cakes in; you might have to do this in batches. Cook for about 3 mins on each side until they are crisp and golden. Drain on kitchen paper. At this point you can pop the crab cakes into the oven to keep warm – or serve right away with dill mayonnaise and extra lemon wedges."} ]}', 3, 4),
+(20, 'Crab & avocado tostadas', 'Crab & avocado tostadas', 1, 'Use a corn tortilla as a base then top with storecupboard crabmeat, guacamole-style Mexican dip and salad', 2, '{"compositions":[     {"composition":"1 small red onion, sliced into thin rings"},     {"composition":"juice 2 limes, plus wedges to serve"},     {"composition":"pinch of caster sugar"},     {"composition":"170g can white crabmeat in brine, drained"},     {"composition":"2 spring onions, finely sliced"},     {"composition":"1 red chilli, deseeded and chopped"},          {"composition":"1 really ripe avocado, peeled, stoned and chopped"},          {"composition":"1 small garlic clove, crushed"},          {"composition":"2 corn tortillas"},          {"composition":"handful mixed salad leaves"} ]}', '{"howtos":[     {"howto":"Put the onion in a bowl and cover with half the lime juice and a good pinch each of sugar and salt. Leave to soften while you get everything else ready."},     {"howto":"Mix together the crabmeat, spring onions and half the chilli. Season with black pepper and set aside. Mash the avocado with the remaining lime juice, garlic and some seasoning. You can leave it quite chunky or mash it until smooth. Stir in the rest of the chilli."},     {"howto":"Bend each tortilla in half and toast in a toaster for 1 min. Put on 2 plates and top with the salad leaves, then mashed avocado. Finish with the crabmeat and drained pickled onion. Serve with lime wedges for squeezing over."} ]}', 3, 3),
+(21, 'Crunchy crab parcels', 'Crunchy crab parcels', 1, 'The combination of crispy filo pastry & crabmeat makes this a wonderfully indulgent dish', 30, '{"compositions":[     {"composition":"1 small potato, cut into quarters"},     {"composition":"85g butter"},     {"composition":"50ml single cream"},     {"composition":"2 spring onions, plus extra for serving"},     {"composition":"300g mixed white and brown crabmeat"},     {"composition":"12 sheets filo pastry"} ]}', '{"howtos":[     {"howto":"Boil the potato for 15 mins until soft. Meanwhile, place 25g of the butter and all of the cream in a heavy-based pan and bring to the boil. Slice the spring onions, separating the green and white parts, then add the white slices to the boiling liquid and cook for 1-2 mins to soften. Pass the cooked potato through a ricer or sieve to a really fine mash, then add to the pan and mix everything together. Set aside to cool."},     {"howto":"Add the crabmeat and sliced green bits of spring onion to the potato mixture and stir together. Melt the remaining butter. Unwrap the filo pastry and cover with a clean, damp tea towel to prevent it drying out. Brush melted butter over one sheet, place another on top and brush again with butter. Then add a final sheet of filo."},     {"howto":"Cut the filo sheets lengthways into 3 long strips. Then cut each strip in half across the middle. Place a teaspoon of the crab onto the bottom right-hand corner of each filo strip. Fold the filo over to make a triangle, then fold again, rolling up the strip. When the mixture is enclosed and you have a neat triangle shape, place on a baking sheet and brush with more butter. Can be made ahead up to this point and frozen for up to 1 month."},     {"howto":"Heat oven to 200C/fan 180C/gas 6. Cook the rolls for 15-20 mins until golden and crisp. To serve, pile the parcels up on a plate or bowl, then scatter over with extra sliced spring onion, if you like."} ]}', 4, 4),
+(22, 'Crab & corn cakes with chilli dipping sauce', 'Crab & corn cakes with chilli dipping sauce', 1, 'Throw out the takeaway menu and make these easy snacks at home', 10, '{"compositions":[     {"composition":"1 egg"},     {"composition":"4 tbsp plain flour"},     {"composition":"1 small garlic clove, crushed"},     {"composition":"1 tbsp chopped coriander stalks (use the leaves for the main course)"},     {"composition":"340g can sweetcorn, well drained"},     {"composition":"170g can white crabmeat, well drained and flaked"},     {"composition":"2 spring onions, finely sliced"},     {"composition":"sunflower or vegetable oil, for frying"} ]}', '{"howtos":[     {"howto":"Tip the egg, flour, garlic and coriander stalks into a food processor with a third of the corn. Whizz to a smooth paste. Mix with the remaining corn, crab, half the spring onions and some seasoning."},     {"howto":"Stir together the sauce ingredients. Cover a tray with kitchen paper. Heat 5cm depth oil in a large, heavy saucepan – it’s ready when a cube of bread browns in 30-40 secs. Drop in dessertspoons of the corn mix, then fry for 2-3 mins, turning, until golden and crisp. Lift onto kitchen paper. Keep warm. Repeat with the remaining mix. Serve the hot cakes sprinkled with the last of the spring onion and the dipping sauce alongside."} ]}', 3, 4),
+(23, 'Crab cakes with sweet chilli & ginger dipping sauce', 'Crab cakes with sweet chilli & ginger dipping sauce', 1, 'An easy help-yourself starter with the zest and spice of ginger and chilli', 4, '{"compositions":[     {"composition":"75g French beans, finely sliced"},     {"composition":"200g fresh white crabmeat"},     {"composition":"1 red chilli, deseeded and finely chopped"},     {"composition":"1 garlic clove, crushed"},     {"composition":"4 spring onions, trimmed and finely chopped"},     {"composition":"1 tbsp freshly grated ginger"},     {"composition":"grated zest 1 lime"},     {"composition":"1 tbsp chopped coriander"},     {"composition":"75g fresh white breadcrumbs"},     {"composition":"1 tbsp mayonnaise"},     {"composition":"1 egg, beaten"},     {"composition":"sunflower oil, for frying"},     {"composition":"5 garlic cloves, roughly chopped"},     {"composition":"2 red chillies, roughly chopped"},     {"composition":"6cm piece ginger, peeled and roughly chopped"},     {"composition":"2 dried kaffir lime leaves"},     {"composition":"1 stalk lemongrass, trimmed and roughly chopped"},     {"composition":"2 tbsp chopped coriander"},     {"composition":"175g caster sugar"},     {"composition":"50ml rice wine vinegar"},     {"composition":"1 tbsp fish sauce or lime juice"},     {"composition":"1 tbsp soy sauce"} ]}', '{"howtos":[     {"howto":"To make the dipping sauce, blend the garlic, chillies, ginger, lime leaves, lemongrass and coriander in a food processor until very finely chopped. Tip the sugar into a small saucepan, add 3 tbsp water and heat gently to dissolve. Continue to cook for another min or so until the syrup starts to thicken slightly."},     {"howto":"Add the chilli and ginger mixture, and continue to cook for a further 2-3 mins. Then stir in the rice vinegar, fish sauce and soy sauce. Remove from the heat and leave to cool to room temperature."},     {"howto":"Cook the beans in a small pan of boiling salted water for 1-2 mins until tender. Drain and refresh under cold running water, then leave to dry on kitchen paper. Mix the crab with the cooked beans and all the remaining ingredients, apart from the sunflower oil. Season with salt and freshly ground black pepper and shape into 8 small patties."},     {"howto":"Heat 1-2 tbsp sunflower oil in a frying pan and cook 4 crab cakes at a time until golden brown on both sides. Remove from the pan and keep warm while you cook the remainder. Serve with the sweet chilli dipping sauce."} ]}', 3, 3),
+(24, 'Simple seafood chowder', 'Simple seafood chowder', 1, 'A chunky, creamy soup with salmon and smoked haddock, mixed shellfish and potatoes - a hearty meal', 4, '{"compositions":[     {"composition":"1 tbsp vegetable oil"},     {"composition":"1 large onion, chopped"},     {"composition":"100g streaky bacon, chopped"},     {"composition":"1 tbsp plain flour"},     {"composition":"600ml fish stock, made from 1 fish stock cube"},     {"composition":"225g new potatoes, halved"},     {"composition":"pinch mace"},     {"composition":"pinch cayenne pepper"},     {"composition":"300ml milk"},     {"composition":"320g pack fish pie mix (salmon, haddock and smoked haddock)"},     {"composition":"4 tbsp single cream"},     {"composition":"250g pack cooked mixed shellfish"},     {"composition":"small bunch parsley, chopped"},     {"composition":"crusty bread, to serve"} ]}', '{"howtos":[     {"howto":"Heat the oil in a large saucepan over a medium heat, then add the onion and bacon. Cook for 8-10 mins until the onion is soft and the bacon is cooked. Stir in the flour, then cook for a further 2 mins."},     {"howto":"Pour in the fish stock and bring it up to a gentle simmer. Add the potatoes, cover, then simmer for 10-12 mins until the potatoes are cooked through."},     {"howto":"Add the mace, cayenne pepper and some seasoning, then stir in the milk."},     {"howto":"Tip the fish pie mix into the pan, gently simmer for 4 mins. Add the cream and shellfish, then simmer for 1 min more. Check the seasoning. Sprinkle with the parsley and serve with some crusty bread."} ]}', 3, 3),
+(25, 'Asparagus & tuna salad', 'Asparagus & tuna salad', 1, 'Give the bistro classic, niçoise salad, a seasonal twist by swapping green beans for tender asparagus', 2, '{"compositions":[     {"composition":"8 baby new potatoes"},     {"composition":"2 medium eggs"},     {"composition":"125g pack asparagus, woody ends removed"},     {"composition":"185g can tuna, drained and flaked into very large chunks"},     {"composition":"small handful small black olives, halved"},     {"composition":"1 romaine lettuce, leaves torn into chunks"},     {"composition":"crusty bread, to serve"},     {"composition":"1 shallot, finely chopped"},     {"composition":"1 tsp English mustard powder"},     {"composition":"2 tbsp white wine vinegar"},     {"composition":"1 tbsp extra-virgin olive oil, or use the oil from the tuna can (if bought in oil)"},     {"composition":"pinch of sugar"} ]}', '{"howtos":[     {"howto":"Boil the potatoes for 8-12 mins until tender. Drain, cool a little under cold running water, then drain again well and set aside to finish cooling."},     {"howto":"Put the eggs in a pan of cold water and bring to the boil. As soon as the water is boiling, add the asparagus for 2 mins. Drain well and rinse everything under cold water to cool. Again drain asparagus well."},     {"howto":"Once cool enough to handle, peel the eggs and halve or quarter. Whisk the dressing ingredients with 1 tbsp water and some seasoning."},     {"howto":"Tip the potatoes, asparagus, tuna, olives and lettuce into a bowl. Drizzle over the dressing and toss well to coat, then add the eggs and serve with crusty bread."} ]}', 2, 3),
+(26, 'Tuna pasta with rocket & parsley pesto', 'Tuna pasta with rocket & parsley pesto', 1, 'Whizz up a quick homemade pesto with parsley and lemon juice, then serve spooned through hot pasta with fish, tomatoes and green beans', 4, '{"compositions":[     {"composition":"400g dried pasta"},     {"composition":"140g frozen fine green beans"},     {"composition":"200g cherry tomatoes, halved"},     {"composition":"large pack parsley, roughly chopped"},     {"composition":"100g bag rocket"},     {"composition":"185g can tuna in sunflower oil, drained but reserve the oil"},     {"composition":"zest and juice 1 lemon"},     {"composition":"185g can tuna in spring water, drained"},     {"composition":"2 tbsp soured cream or cream cheese"} ]}', '{"howtos":[     {"howto":"Cook the pasta in a large pan of salted boiling water, adding the green beans and cherry tomatoes for the final 3 mins of cooking time. Drain, reserving a mug of cooking water."},     {"howto":"Whizz the parsley, half the rocket, 3 tbsp of oil from the tuna, the lemon zest and juice, and some seasoning with enough of the reserved water in a food processor to form a spoonable pesto dressing."},     {"howto":"Tip the pasta and veg back into the pan and add the pesto, both cans of tuna and the soured cream or cream cheese, stirring through until hot. Remove from the heat and toss the rest of the rocket through the pasta."} ]}', 3, 3),
+(27, 'Tuna, olive & rocket pizzas', 'Tuna, olive & rocket pizzas', 1, 'A simple storecupboard standby supper for the whole family - top your pizza bases with salty seafood and a garnish of rocket and red onion', 2, '{"compositions":[     {"composition":"145g pack pizza base mix (or same weight of bread mix)"},     {"composition":"2 tbsp tomato purée"},     {"composition":"185g can tuna in oil, drained, oil reserved"},     {"composition":"plain flour, for dusting"},     {"composition":"1 tbsp caper"},     {"composition":"125g pack value mozzarella"},     {"composition":"10 pitted black kalamata olives"},     {"composition":"1 small red onion, halved and thinly sliced"},     {"composition":"small handful rocket"} ]}', '{"howtos":[     {"howto":"Heat oven to 240C/220C fan/gas 9. Tip the pizza mix into a bowl and make up following pack instructions. Cover the bowl with a cloth and leave for a few mins."},     {"howto":"Meanwhile, mix the tomato purée with 4 tbsp water, 1 tbsp oil from the tuna and some seasoning."},     {"howto":"Knead the dough for a few mins on a floured surface, then halve and put each piece, spaced apart, on a large oiled baking tray. Press with an oiled hand to make thin flat pizzas – they don’t have to be perfectly round."},     {"howto":"Spread with the tomato purée mixture, then top with the tuna, capers, cheese and olives. Bake for 10-12 mins. Serve scattered with the onion and rocket."} ]}', 3, 3),
+(28, 'Spicy tuna & cottage cheese jacket', 'Spicy tuna & cottage cheese jacket', 1, 'For a low-fat energy lunch try a carbohydrate-heavy baked potato with a light and nutritious filling', 1, '{"compositions":[     {"composition":"225g can tuna, drained"},     {"composition":"½ red chilli, chopped"},     {"composition":"1 spring onion, sliced"},     {"composition":"handful halved cherry tomatoes"},     {"composition":"½ small bunch coriander, chopped"},     {"composition":"1 medium-sized jacket potato"},     {"composition":"150g low-fat cottage cheese"} ]}', '{"howtos":[     {"howto":"Preheat the oven to 180C/Gas 4/fan oven 160C. Prick the potato several times with a fork and put it straight onto a shelf in the hottest part of the oven. Bake for approximately 1 hour, or until it is soft inside."},     {"howto":"Mix tuna with chilli, spring onion, cherry tomatoes and coriander. Split jacket potato and fill with the tuna mix and cottage cheese."} ]}', 2, 3),
+(29, 'Sweet jacket potato with piri-piri prawns', 'Sweet jacket potato with piri-piri prawns', 1, 'Treat yourself to a special solo supper of spiced shellfish, sweet red peppers and paprika mayonnaise on a baked potato', 1, '{"compositions":[     {"composition":"1 large sweet potato"},     {"composition":"2½ tsp olive oil"},     {"composition":"1 garlic clove, crushed"},     {"composition":"1 small red pointed pepper, sliced into rings"},     {"composition":"pinch of chilli flakes"},     {"composition":"½ tsp sweet paprika"}, {"composition":"1 tbsp red wine vinegar"},     {"composition":"1 tbsp tomato ketchup"},     {"composition":"100g raw king prawns"},     {"composition":"few sprigs parsley, chopped"},     {"composition":"2 tbsp light mayonnaise"} ]}', '{"howtos":[     {"howto":"Heat oven to 200C/180C fan/gas 6. Put the sweet potato on a baking tray, rub all over with a little of the oil and season with salt. Bake for 45 mins until really soft."},     {"howto":"Meanwhile, heat the remaining oil in a frying pan. Add the garlic and pepper and cook for 2 mins, making sure the garlic doesn’t burn. Add the chilli flakes, half the paprika, the vinegar, ketchup, 1 tbsp water and prawns to the pan, then bubble for 2 mins until the prawns are cooked through. Stir through the parsley, saving a little to sprinkle over at the end."},     {"howto":"Mix the remaining paprika into the mayonnaise. Once the potato is cooked, split it down the centre, pile in the prawn mixture and dollop the paprika mayo on top. Scatter over the remaining parsley and serve."} ]}', 3, 4),
+(30, 'Sweet potato & lentil soup', 'Sweet potato & lentil soup', 2, 'Satisfying and simple to make, homemade soup is a great supper or take-to-work lunch', 6, '{"compositions":[     {"composition":"2 tsp medium curry powder"},     {"composition":"3 tbsp olive oil"},     {"composition":"2 onions, grated"},     {"composition":"1 eating apple, peeled, cored and grated"},     {"composition":"3 garlic cloves, crushed"},     {"composition":"20g pack coriander, stalks chopped"}, {"composition":"thumb-size piece fresh root ginger, grated"},     {"composition":"800g sweet potatoes"},     {"composition":"1.2l vegetable stock"},     {"composition":"100g red lentils"},     {"composition":"300ml milk"},     {"composition":"juice 1 lime"} ]}', '{"howtos":[     {"howto":"Put the curry powder into a large saucepan, then toast over a medium heat for 2 mins. Add the olive oil, stirring as the spice sizzles in the pan. Tip in the onions, apple, garlic, coriander stalks and ginger, season, then gently cook for 5 mins, stirring every so often."},     {"howto":"Meanwhile, peel, then grate the sweet potatoes. Tip into the pan with the stock, lentils, milk and seasoning, then simmer, covered, for 20 mins. Blend until smooth using a stick blender. Stir in the lime juice, check the seasoning and serve, topped with roughly-chopped coriander leaves."} ]}', 3, 3),
+(31, 'Sweet potato & chicken curry', 'Sweet potato & chicken curry', 3, 'Chicken thighs are good value and tasty, just right for this healthy, versatile curry', 4, '{"compositions":[     {"composition":"500g sweet potatoes, peeled and cut into bite-size pieces"},     {"composition":"1 tbsp olive oil"},     {"composition":"4 skinless chicken thigh fillets, each cut into large chunks"},     {"composition":"1 large red onion, cut into wedges"},     {"composition":"2 tbsp rogan josh curry paste"},     {"composition":"2 large tomatoes, roughly chopped"}, {"composition":"125g spinach"} ]}', '{"howtos":[     {"howto":"Cook the sweet potatoes in boiling, salted water for 5-7 mins until just tender. Drain well, then set aside. Meanwhile, heat the oil in a large frying pan, then add the chicken and onion. Cook for 5-6 mins until the chicken is browned and cooked through. Stir in the curry paste, cook for 1 min, add the tomatoes, then cook for another min."},     {"howto":"Pour in 100ml boiling water and mix well. Simmer for 5 mins, add the spinach, then cook for 2 mins until wilted. Fold in the potatoes and heat through. Serve with rice and naan breads."} ]}', 3, 4),
+(32, 'Sweet potato & pineapple korma', 'Sweet potato & pineapple korma', 5, 'An easy to prepare vegetarian curry with a sweet twist', 2, '{"compositions":[     {"composition":"2 tbsp Korma paste"},     {"composition":"2 sweet potatoes, peeled and cut into large chunks"},     {"composition":"400g tin coconut milk"},     {"composition":"400g tin pineapples chunks"} ]}', '{"howtos":[     {"howto":"Heat korma paste and toss with sweet potatoes, peeled and cut into large chunks."},     {"howto":"Pour in coconut milk and water then cook for about 15 mins or until the sweet potato is tender. Tip in pineapple chunks simmer for 2 mins, then season. Scatter with coriander and serve with naan bread."} ]}', 2, 3);
+INSERT INTO `recipe` (`recipe_id`, `recipe_name`, `recipe_image`, `id_recipe_type`, `recipe_description`, `recipe_portion`, `recipe_composition`, `recipe_howto`, `recipe_difficulty`, `recipe_rating`) VALUES
+(33, 'Sweet potato falafels with coleslaw', 'Sweet potato falafels with coleslaw', 5, 'Pittas bursting with homemade falafels and salad make a low-fat lunch or light supper for less than a pound per serving', 4, '{"compositions":[     {"composition":"1 large or 2 small sweet potatoes, about 700g/1lb 9oz in total"},     {"composition":"1 tsp ground cumin"},     {"composition":"2 garlic cloves, chopped"},     {"composition":"2 tsp ground coriander"},     {"composition":"handful coriander leaves, chopped"},     {"composition":"juice ½ lemon"},     {"composition":"100g plain or gram flour"},     {"composition":"1 tbsp olive oil"},     {"composition":"4 wholemeal pitta breads"},     {"composition":"4 tbsp reduced-fat houmous"},     {"composition":"2 tbsp red wine vinegar"},     {"composition":"1 tbsp golden caster sugar"},     {"composition":"1 small onion, finely sliced"},     {"composition":"1 medium carrot, grated"},     {"composition":"¼ each white and red cabbage, shredded"} ]}', '{"howtos":[     {"howto":"Heat korma paste and toss with sweet potatoes, peeled and cut into large chunks."},     {"howto":"Meanwhile, stir the vinegar and sugar together in a large bowl until the sugar has dissolved, toss through the onion, carrot and cabbage, then leave to marinate for 15 mins. To serve, toast the pittas, then split. Fill with salad, a dollop of houmous and the falafels."} ]}', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -610,6 +781,12 @@ ALTER TABLE `customer`
  ADD PRIMARY KEY (`customer_id`);
 
 --
+-- Indexes for table `doctor`
+--
+ALTER TABLE `doctor`
+ ADD PRIMARY KEY (`doctor_id`);
+
+--
 -- Indexes for table `guest`
 --
 ALTER TABLE `guest`
@@ -626,6 +803,24 @@ ALTER TABLE `guest_cart`
 --
 ALTER TABLE `guest_orders`
  ADD PRIMARY KEY (`guest_orders_id`);
+
+--
+-- Indexes for table `illness`
+--
+ALTER TABLE `illness`
+ ADD PRIMARY KEY (`illness_id`);
+
+--
+-- Indexes for table `illness_prohibition`
+--
+ALTER TABLE `illness_prohibition`
+ ADD PRIMARY KEY (`illness_prohibition_id`);
+
+--
+-- Indexes for table `illness_recommendation`
+--
+ALTER TABLE `illness_recommendation`
+ ADD PRIMARY KEY (`illness_recommendation_id`), ADD KEY `illness_id` (`illness_id`), ADD KEY `recipe_id` (`recipe_id`);
 
 --
 -- Indexes for table `orders`
@@ -716,22 +911,42 @@ MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=37;
+--
+-- AUTO_INCREMENT for table `doctor`
+--
+ALTER TABLE `doctor`
+MODIFY `doctor_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `guest`
 --
 ALTER TABLE `guest`
-MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+MODIFY `guest_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT for table `guest_cart`
 --
 ALTER TABLE `guest_cart`
-MODIFY `guest_cart_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `guest_cart_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `guest_orders`
 --
 ALTER TABLE `guest_orders`
 MODIFY `guest_orders_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `illness`
+--
+ALTER TABLE `illness`
+MODIFY `illness_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `illness_prohibition`
+--
+ALTER TABLE `illness_prohibition`
+MODIFY `illness_prohibition_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `illness_recommendation`
+--
+ALTER TABLE `illness_recommendation`
+MODIFY `illness_recommendation_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `orders`
 --
@@ -741,12 +956,12 @@ MODIFY `orders_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
+MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `product_size_price`
 --
 ALTER TABLE `product_size_price`
-MODIFY `id_product_size_price` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=70;
+MODIFY `id_product_size_price` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=79;
 --
 -- AUTO_INCREMENT for table `product_type`
 --
@@ -756,7 +971,7 @@ MODIFY `id_product_type` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 -- AUTO_INCREMENT for table `recipe`
 --
 ALTER TABLE `recipe`
-MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `recipe_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `recipe_composition`
 --
@@ -798,6 +1013,13 @@ ALTER TABLE `cart`
 ADD CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`product_id`),
 ADD CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`id_product_size_price`) REFERENCES `product_size_price` (`id_product_size_price`),
 ADD CONSTRAINT `cart_ibfk_3` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`);
+
+--
+-- Constraints for table `illness_recommendation`
+--
+ALTER TABLE `illness_recommendation`
+ADD CONSTRAINT `illness_recommendation_ibfk_1` FOREIGN KEY (`illness_id`) REFERENCES `illness` (`illness_id`),
+ADD CONSTRAINT `illness_recommendation_ibfk_2` FOREIGN KEY (`recipe_id`) REFERENCES `recipe` (`recipe_id`);
 
 --
 -- Constraints for table `orders`
