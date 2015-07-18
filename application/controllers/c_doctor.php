@@ -23,6 +23,21 @@ class C_doctor extends CI_Controller {
       }
  	}
 
+ 	public function survei()
+ 	{
+   		if($this->session->userdata('logged_doctor'))
+      {
+        $session_data = $this->session->userdata('logged_doctor');
+        $data['username'] = $session_data['username'];
+        $data['id'] = $session_data['id'];
+        $this->load->model('modeldata');
+        $data['recipes']=$this->modeldata->get_all_recipes();
+        $this->load->view('doctor/survei_dashboard',$data);
+      }else{
+        redirect('c_doctor/login', 'refresh');
+      }
+ 	}
+
  	public function login()
  	{
  		$this->load->helper(array('form'));

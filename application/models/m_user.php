@@ -28,11 +28,17 @@ Class M_user extends CI_Model
     $alamat = $data['alamat'];
     $hp = $data['hp'];
     $tanggallahir = $data['tanggallahir'];
-    $penyakit = $data['penyakit'];
     $username = $data['username'];
     $password = md5($data['password']);
 
-    $sql = "INSERT INTO customer (customer_name, customer_email, customer_address, customer_hp, customer_birthdate, illness, customer_username, customer_password) VALUES ('$nama_lengkap','$email', '$alamat', '$hp', '$tanggallahir', '$penyakit', '$username', '$password')";
+    $sql = "INSERT INTO customer (customer_name, customer_email, customer_address, customer_hp, customer_birthdate, customer_username, customer_password) VALUES ('$nama_lengkap','$email', '$alamat', '$hp', '$tanggallahir', '$username', '$password')";
+    $query = $this->db->query($sql);
+    return $this->db->insert_id();
+  }
+
+  function insert_customer_illness($customer_id, $illness_id)
+  {
+    $sql = "INSERT INTO customer_illness(customer_id, illness_id) VALUES ('$customer_id', '$illness_id')";
     $query = $this->db->query($sql);
   }
 }

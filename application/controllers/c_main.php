@@ -186,15 +186,13 @@ class C_main extends CI_Controller {
     $data['tanggallahir']= $_POST['tanggallahir'];
     $data['username']= $_POST['username'];
     $data['password']= $_POST['password'];
-    $penyakit="";
+    $customer_id = $this->m_user->add_customer($data);
     if(!empty($_POST['penyakit'])){
       // Loop to store and display values of individual checked checkbox.
       foreach($_POST['penyakit'] as $sakit){
-        $penyakit=$penyakit.$sakit.',';
+        $this->m_user->insert_customer_illness($customer_id, $sakit);
       }
     }
-    $data['penyakit']= $penyakit;
-    $this->m_user->add_customer($data);
     $this->load->view('register_confirmation',$data);
   }
 
@@ -221,12 +219,13 @@ class C_main extends CI_Controller {
     $data['username'] = $session_data['username'];
     $data['id'] = $session_data['id'];
     $this->load->model('modeldata');
+    $recipe_customer_rating_prediction = array();
     $recipes = $this->modeldata->get_all_recipes();
     foreach ($recipes as $recipe) {
       //Cek apakah user sudah pernah melakukan rating terhadap resep ini
       // Jika sudah maka lewatkan
       $rating_status = $this->modeldata->get_rating_status($data['id'],$recipe->recipe_id);
-      if(!($rating_status)){
+      //if(!($rating_status)){
         $dividend = 0;
         $divisor = 0;
         //Cari sum dari nilai similarity antar item dikalikan rating yang user berikan
@@ -244,11 +243,74 @@ class C_main extends CI_Controller {
         else{
           $prediction_value = $dividend/$divisor;
         }
-        echo 'Customer : '.$data['id'].'<br>';
-        echo 'Recipe : '.$recipe->recipe_id.'<br>';
-        echo 'Prediction : '.$prediction_value.'<br><br><br>';
+        array_push($recipe_customer_rating_prediction, array($data['id'], $recipe->recipe_id, $prediction_value) );
+      //}
+    }
+    //sorting terhadap array bobot prediksi
+    $length=count($recipe_customer_rating_prediction);
+    for ($i=1;$i<$length;$i++) {
+      $element=$recipe_customer_rating_prediction[$i];
+      $j=$i;
+      while($j>0 && $recipe_customer_rating_prediction[$j-1][2]<$element[2]) {
+        $recipe_customer_rating_prediction[$j]=$recipe_customer_rating_prediction[$j-1];
+        $j=$j-1;
+      }
+      $recipe_customer_rating_prediction[$j]=$element;
+    }
+
+    foreach ($recipe_customer_rating_prediction as $rcrp) {
+          echo 'Customer : '.$rcrp[0].'<br>';
+          echo 'Recipe : '.$rcrp[1].'<br>';
+          echo 'Prediction : '.$rcrp[2].'<br><br><br>';
+    }
+    return $recipe_customer_rating_prediction;
+  }
+
+  public function show_recommendation(){
+    $session_data = $this->session->userdata('logged_in');
+    $data['username'] = $session_data['username'];
+    $data['id'] = $session_data['id'];
+    //GENERATE PREDICTION
+    $predictions = $this->generate_prediction();
+    $recommendation = array();
+    $prohibition = array();
+
+    //BAGIAN RESEP YANG MUNGKIN ANDA SUKA
+    //LAKUKAN ITERASI, CEK APAKAH ID RESEP DILARANG, BUANG YANG DILARANG
+    $customer_illness = $this->modeldata->get_customer_illness($data['id']);
+    foreach ($customer_illness as $illness) {
+      $prohibition = $prohibition + $this->modeldata->get_illness_prohibition($illness['illness_id']);
+      $recommendation = $recommendation + $this->modeldata->get_illness_recommendation($illness['illness_id']);
+    }
+    foreach ($predictions as $prediction) {
+      if (!empty($prohibition)) {
+        foreach ($prohibition as $prhb) {
+          if ($prediction[1] == $prhb['recipe_id']) {
+            echo 'dilarang : '.$prediction[1];
+          }
+          else{
+            echo 'dibolehkan : '.$prediction[1];
+          }
+        }      
+      }
+      if (!empty($recommendation)) {
+        foreach ($recommendation as $rcmd) {
+          if ($prediction[1] == $rcmd['recipe_id']) {
+            echo 'direkomendasikan : '.$prediction[1];
+          }
+        }
       }
     }
+    
+
+    //BAGIAN RESEP YANG BAIK UNTUK PENYAKIT ANDA
+    //LAKUKAN ITERASI PRODUK YANG DIREKOMENDASIKAN, HILANGKAN PRODUK YANG DILARANG UNTUK DIKONSUMSI OLEH PENYAKIT LAIN
+
+  }
+
+  public function pindahkan_data_penyakit(){
+    $this->load->model('modeldata');
+    $this->modeldata->pindahkan_data_penyakit();
   }
 }
 ?>

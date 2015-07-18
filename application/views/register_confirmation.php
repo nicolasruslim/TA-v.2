@@ -6,5 +6,4 @@
 	echo 'tanggal lahir'.$tanggallahir.'<br>';
 	echo 'alamat'.$alamat.'<br>';
 	echo 'hp'.$hp.'<br>';
-	echo $penyakit;
 ?>
