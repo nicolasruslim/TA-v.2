@@ -5,6 +5,10 @@ class C_doctor extends CI_Controller {
  	function __construct()
  	{
  		parent::__construct();
+	    $this->load->model('modeldata');
+	    $this->load->model('m_doctor');
+	    $this->load->model('m_recipe');
+	    $this->load->model('m_recommendation');
  	}
 
  	public function index()
@@ -14,9 +18,8 @@ class C_doctor extends CI_Controller {
         $session_data = $this->session->userdata('logged_doctor');
         $data['username'] = $session_data['username'];
         $data['id'] = $session_data['id'];
-        $this->load->model('modeldata');
-    	$data['illness'] = $this->modeldata->get_illness();
-        $data['recipes']=$this->modeldata->get_all_recipes();
+    	$data['illness'] = $this->m_recommendation->get_illness();
+        $data['recipes']=$this->m_recipe->get_all_recipes();
         $this->load->view('doctor/doctor_dashboard',$data);
       }else{
         redirect('c_doctor/login', 'refresh');
@@ -30,8 +33,7 @@ class C_doctor extends CI_Controller {
         $session_data = $this->session->userdata('logged_doctor');
         $data['username'] = $session_data['username'];
         $data['id'] = $session_data['id'];
-        $this->load->model('modeldata');
-        $data['recipes']=$this->modeldata->get_all_recipes();
+        $data['recipes']=$this->m_recipe->get_all_recipes();
         $this->load->view('doctor/survei_dashboard',$data);
       }else{
         redirect('c_doctor/login', 'refresh');
@@ -46,7 +48,6 @@ class C_doctor extends CI_Controller {
 
  	public function verify_login()
 	{
-		$this->load->model('m_doctor','',TRUE);
 		$this->load->library('form_validation');
  
    		$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
@@ -92,7 +93,6 @@ class C_doctor extends CI_Controller {
 	}
 
 	public function update_illness_recommendation($recipe_id){
-		$this->load->model('m_doctor','',TRUE);
 		if(!empty($_POST['recommended'])){
       		foreach($_POST['recommended'] as $illness_recommended){
 	        	//cari id_resep dengan id_penyakit di recommendation

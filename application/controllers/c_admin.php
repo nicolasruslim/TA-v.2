@@ -1,9 +1,12 @@
 <?php
 class C_admin extends CI_Controller{
 	
-	function _construct()
+	function __construct()
 	{
 		parent::__construct();
+		$this->load->model('m_admin');
+		$this->load->model('m_recipe');
+		$this->load->model('m_product');
 	}
 	
 	public function index()
@@ -13,7 +16,6 @@ class C_admin extends CI_Controller{
 
 	public function view_product()
 	{
-		$this->load->model('m_admin');
 		$data['products'] = $this->m_admin->view_product();
 		$this->load->view('admin/admin_view_product', $data);	
 	}
@@ -45,7 +47,6 @@ class C_admin extends CI_Controller{
 			$this->load->library('upload', $config);
 			if($this->upload->do_upload())
 			{
-				$this->load->model('m_admin');
 				$upload_data = $this->upload->data();
   				$file_name =  $upload_data['raw_name'];
 				$data = array(
@@ -72,10 +73,8 @@ class C_admin extends CI_Controller{
 	public function insert_recipe(){
 		$this->load->helper('form');
 		//ambil data product_size_price
-		$this->load->model('m_admin');
-		$this->load->model('modeldata');
 		$data['product_size_price'] = $this->m_admin->get_product_size_price();
-		$data['products'] = $this->modeldata->get_all_products();
+		$data['products'] = $this->m_product->get_all_products();
 		$this->load->view('admin/admin_insert_recipe', $data);
 	}
 
@@ -93,7 +92,6 @@ class C_admin extends CI_Controller{
 		$this->load->library('upload', $config);
 		if($this->upload->do_upload())
 		{
-			$this->load->model('m_admin');
 			$upload_data = $this->upload->data(); 
 			$file_name =   $upload_data['raw_name'];
 			$data = array(
@@ -118,9 +116,7 @@ class C_admin extends CI_Controller{
 	}
 
 	public function generate_similarity(){
-		$this->load->model('m_admin');
-		$this->load->model('modeldata');
-		$recipes = $this->modeldata->get_all_recipes_array();
+		$recipes = $this->m_recipe->get_all_recipes_array();
 		$i = 0;
 		$j = 1;
 		$recipe_amount = count($recipes);
@@ -138,12 +134,16 @@ class C_admin extends CI_Controller{
 				foreach ($ratings1 as $rating1) {
 					foreach ($ratings2 as $rating2) {
 						if ($rating1['customer_id']==$rating2['customer_id']) {
+							//dapatkan customer yang memberikan rating terhadap kedua resep dibandingkan
 							$same_customer_id[]= $rating1['customer_id'];
+							//jumlahkan seluruh dot product dari rating resep pertama dan kedua
 							$dot_product = $dot_product + ($rating1['rating']*$rating2['rating']);
 							echo 'dot_product = '.$dot_product.'<br>';
 						}
 					}
+					//Jika ada konsumen yang memberikan rating kepada 2 produk tersebut,
 					if(!empty($same_customer_id)){
+						//cek apakah ada 
 						if(in_array($rating1['customer_id'], $same_customer_id)){
 							$magnitude1 = $magnitude1+($rating1['rating']*$rating1['rating']);
 						}
