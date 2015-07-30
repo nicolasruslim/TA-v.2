@@ -36,12 +36,15 @@
           </li>
       </ul></td>
       <form method="post" action="<?php echo site_url().'/c_doctor/update_illness_recommendation/'.$recipe->recipe_id; ?>">
-      <td><?php foreach ($illness as $ill) { ?>
-            <input type="checkbox" name="recommended[]" value="<?php echo $ill->illness_id; ?>"><?php echo $ill->illness_name; ?><br>  
+      <td><?php foreach ($illness as $ill) { 
+              $check1 =''; foreach($recommendation as $rcmd){ if ($rcmd->illness_id == $ill->illness_id AND $rcmd->recipe_id == $recipe->recipe_id) { $check1 = 'yes'; }} ?>
+              <input type="checkbox" name="recommended[]"  <?php if ($check1 == 'yes'){ echo "checked='checked'";} ?> value="<?php echo $ill->illness_id; ?>"><?php echo $ill->illness_name; ?><br>  
             <?php } ?>
       </td>
-      <td><?php foreach ($illness as $ill) { ?>
-            <input type="checkbox" name="prohibited[]" value="<?php echo $ill->illness_id; ?>"><?php echo $ill->illness_name; ?><br>  
+
+      <td><?php foreach ($illness as $ill) {
+              $check2 =''; foreach($prohibition as $prhb){ if ($prhb->illness_id == $ill->illness_id AND $prhb->recipe_id == $recipe->recipe_id) { $check2 = 'yes'; }} ?>
+              <input type="checkbox" name="prohibited[]" <?php if ($check2 == 'yes'){ echo "checked='checked'";} ?> value="<?php echo $ill->illness_id; ?>"><?php echo $ill->illness_name; ?><br>  
             <?php } ?>
       </td>
       <td><button type="submit" class="btn btn-success btn-flat">Update</button> </td>

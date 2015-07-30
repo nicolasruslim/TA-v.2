@@ -20,6 +20,8 @@ class C_doctor extends CI_Controller {
         $data['id'] = $session_data['id'];
     	$data['illness'] = $this->m_recommendation->get_illness();
         $data['recipes']=$this->m_recipe->get_all_recipes();
+        $data['prohibition']=$this->m_doctor->get_all_illness_prohibition();
+        $data['recommendation']=$this->m_doctor->get_all_illness_recommendation();
         $this->load->view('doctor/doctor_dashboard',$data);
       }else{
         redirect('c_doctor/login', 'refresh');
@@ -100,8 +102,22 @@ class C_doctor extends CI_Controller {
       			if(!$this->m_doctor->get_illness_recommendation($recipe_id, $illness_recommended)){
       				$this->m_doctor->set_illness_recommendation($recipe_id, $illness_recommended);
       			}
+      			//ambil semua list penyakit di database
+      			//cek apakah ada di list $_POST['recommended']
+      			//jika tidak ada, hapus dari rekomendasi penyakit
+      			$illness_list = $this->m_doctor->get_all_illness();
+      			foreach ($illness_list as $list) {
+      				if(!in_array($list->illness_id, $_POST['recommended'])){
+      					$this->m_doctor->delete_illness_recommendation($recipe_id, $list->illness_id);
+      				}
+      			}
       		}
+      	}else{
+      		//jika kosong hapus semua rekomendasi penyakit yang ada
+      		$this->m_doctor->delete_recipe_illness_recommendation($recipe_id);
       	}
+
+
       	if(!empty($_POST['prohibited'])){
       		foreach($_POST['prohibited'] as $illness_prohibited){
       			//cari id_resep dengan id_penyakit di prohibited
@@ -109,7 +125,21 @@ class C_doctor extends CI_Controller {
       			if(!$this->m_doctor->get_illness_prohibition($recipe_id, $illness_prohibited)){
       				$this->m_doctor->set_illness_prohibition($recipe_id, $illness_prohibited);
       			}
+
+      			//ambil semua list penyakit di database
+      			//cek apakah ada di list $_POST['prohibited']
+      			//jika tidak ada, hapus dari rekomendasi penyakit
+      			$illness_list = $this->m_doctor->get_all_illness();
+      			foreach ($illness_list as $list) {
+      				if(!in_array($list->illness_id, $_POST['prohibited'])){
+      					$this->m_doctor->delete_illness_prohibition($recipe_id, $list->illness_id);
+      				}
+      			}
       		}
+      	}else{
+      		//jika kosong hapus semua rekomendasi penyakit yang ada
+      		$this->m_doctor->delete_recipe_illness_prohibition($recipe_id);
       	}
+      	redirect('c_doctor', 'refresh');
 	}
 }

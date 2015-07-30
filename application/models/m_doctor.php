@@ -21,6 +21,37 @@ Class M_doctor extends CI_Model
      }
    }
 
+  function delete_illness_recommendation($recipe_id, $illness_id){
+    $query = $this->db->query("DELETE FROM illness_recommendation WHERE recipe_id = $recipe_id AND illness_id=$illness_id");
+  }
+
+  function delete_recipe_illness_recommendation($recipe_id){
+    $query = $this->db->query("DELETE FROM illness_recommendation WHERE recipe_id = $recipe_id");
+  }
+
+  function delete_illness_prohibition($recipe_id, $illness_id){
+    $query = $this->db->query("DELETE FROM illness_prohibition WHERE recipe_id = $recipe_id AND illness_id=$illness_id");
+  }
+
+  function delete_recipe_illness_prohibition($recipe_id){
+    $query = $this->db->query("DELETE FROM illness_prohibition WHERE recipe_id = $recipe_id");
+  }
+
+   function get_all_illness(){
+    $query = $this->db->query("SELECT * FROM illness");
+    return $query->result();
+  }
+
+  function get_all_illness_recommendation(){
+    $query = $this->db->query("SELECT * FROM illness_recommendation");
+    return $query->result();
+  }
+
+  function get_all_illness_prohibition(){
+    $query = $this->db->query("SELECT * FROM illness_prohibition");
+    return $query->result();
+  }
+
   function get_illness_recommendation($recipe_id, $illness_recommended){
     $query = $this->db->query("SELECT * FROM illness_recommendation WHERE recipe_id=$recipe_id AND illness_id=$illness_recommended");
     if($query->num_rows() == 0){

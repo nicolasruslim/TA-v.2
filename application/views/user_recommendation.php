@@ -14,11 +14,15 @@
 
     foreach ($predictions as $prediction) {
       if (!empty($prohibition)) {
-        foreach ($prohibition as $prhb) {
-          if ($prediction[1] == $prhb['recipe_id']) {
-            $dilarang[] = $prediction[1];
-          }
-        }      
+        if(!in_array($prediction[1], $prohibition)){
+          $dibolehkan[] = $prediction[1];
+        }else{
+          foreach ($prohibition as $prhb) {
+            if ($prediction[1] == $prhb['recipe_id']) {
+              $dilarang[] = $prediction[1];
+            }
+          }      
+        }
       }
       else{
         $dibolehkan[] = $prediction[1];
@@ -26,7 +30,7 @@
       if (!empty($recommendation)) {
         foreach ($recommendation as $rcmd) {
           if ($prediction[1] == $rcmd['recipe_id']) {
-            $direkomendasikan = $prediction[1];
+            $direkomendasikan[] = $prediction[1];
           }
         }
       }

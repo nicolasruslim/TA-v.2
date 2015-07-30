@@ -13,7 +13,7 @@ class M_recommendation extends CI_Model{
 	//Menjadikan recipe_id sebagai id dari resep yang dibandingkan
 	//Item pembanding yang diperoleh memiliki kesamaan > 0.5 terhadap item dibandingkan
 	function get_similar_recipes($recipe_id){
-		$query = $this->db->query("SELECT * FROM recipe_similarity WHERE recipe1_id = $recipe_id OR recipe2_id = $recipe_id AND similarity >= 0.4");
+		$query = $this->db->query("SELECT * FROM recipe_similarity WHERE recipe1_id = $recipe_id OR recipe2_id = $recipe_id AND similarity >= 0.3");
 		return $query->result();	
 	}
 
