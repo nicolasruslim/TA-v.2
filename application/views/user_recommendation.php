@@ -47,6 +47,7 @@
         }
         foreach ($recipes as $recipe) {
           if($recipe['recipe_id'] == $boleh){
+            echo $recipe['recipe_id'];
             $image = $recipe['recipe_image'];
   ?>
             <img width="300px" height="300px" src="<?php echo base_url().'assets/images/recipes/'.$image.'.jpg';?>" class="img-responsive">

@@ -3,18 +3,12 @@
 <head>
   <title>Belanja Harian</title>
   <meta name="description" content="">
-  <link rel="stylesheet" href="<?php echo base_url().'/assets/css/bootstrap.css'; ?>">
-  <link rel="stylesheet" href="<?php echo base_url().'/assets/css/bootstrap-responsive.css';?>">
-  <link rel="stylesheet" href="<?php echo base_url().'/assets/css/font-awesome.min.css';?>">
-  <link rel="stylesheet" href="<?php echo base_url().'/assets/css/jquery.starrr.css';?>">
-  <link rel="stylesheet" href="<?php echo base_url().'/assets/css/demo.css';?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url().'/assets/css/style.css'; ?>" />
 </head>
 <body>
   <div id="container">
         <img src="<?php echo base_url().'/assets/images/recipes/'.$recipe->recipe_image.'.jpg';?>">
         <h4><?php echo $recipe->recipe_name;?></h4> 
-        <div class='starrr'></div>
         <?php if ($rating_status != 1){ ?>
           <div><form method="post" action="<?php echo site_url().'/c_main/give_rating/'.$recipe->recipe_id; ?>"></div>
             Apakah Anda menyukai atau tertarik untuk memasak resep ini? <br>

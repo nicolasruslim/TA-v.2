@@ -274,13 +274,13 @@ class C_main extends CI_Controller {
       }
       $recipe_customer_rating_prediction[$j]=$element;
     }
-    /*
+    
     foreach ($recipe_customer_rating_prediction as $rcrp) {
           echo 'Customer : '.$rcrp[0].'<br>';
           echo 'Recipe : '.$rcrp[1].'<br>';
           echo 'Prediction : '.$rcrp[2].'<br><br><br>';
     }
-    */
+    
     return $recipe_customer_rating_prediction;
   }
 
