@@ -233,15 +233,13 @@ class C_main extends CI_Controller {
         //Diperoleh resep yang serupa dengan resep yang diacu
         $similar_recipes = $this->m_recommendation->get_similar_recipes($recipe->recipe_id);
 
-        
-
         foreach ($similar_recipes as $similar_recipe) {
           //Jika id resep = recipe1_id maka ambil recipe2_id.
           //Jika id resep = recipe2_id maka ambil recipe1_id.  
-          if($similar_recipe->recipe1_id = $recipe->recipe_id){
+          if($similar_recipe->recipe1_id == $recipe->recipe_id){
             $similar_recipe_id = $similar_recipe->recipe2_id;
           }
-          else{
+          elseif($similar_recipe->recipe2_id == $recipe->recipe_id){
            $similar_recipe_id = $similar_recipe->recipe2_id;
           }
 
@@ -305,6 +303,7 @@ class C_main extends CI_Controller {
     $data['predictions']=$predictions;
     $data['prohibition']=$prohibition;
     $data['recommendation']=$recommendation;
+    $data['rating_test'] = $this->m_recommendation->get_rating_test($session_data['id']);
     
     /*
     foreach ($predictions as $prediction) {

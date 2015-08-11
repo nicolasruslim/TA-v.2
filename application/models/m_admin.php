@@ -90,14 +90,15 @@ class M_admin extends CI_Model{
 
 	function insert_similarity($recipe1_id, $recipe2_id, $similarity)
 	{	
-		$sql = "SELECT recipe1_id, recipe2_id FROM recipe_similarity";
-		$query = $this->db->query($sql);
-		if(empty($query)){
-			$sql = "INSERT INTO recipe_similarity (recipe1_id, recipe2_id, similarity) VALUES ('$recipe1_id','$recipe2_id', '$similarity')";
-			$this->db->query($sql);	
+		$sql1 = "SELECT * FROM recipe_similarity WHERE (recipe1_id=$recipe1_id AND recipe2_id = $recipe2_id) OR (recipe1_id=$recipe2_id AND recipe2_id = $recipe1_id)";
+		$result = mysql_query($sql1);
+		if(mysql_num_rows($result)==0){
+			$sql2 = "INSERT INTO recipe_similarity(recipe1_id, recipe2_id, similarity) VALUES ('$recipe1_id','$recipe2_id', '$similarity')";
+			return mysql_query($sql2) or die(mysql_error());
+			
 		}else{
-			$sql = "UPDATE recipe_similarity SET similarity='$similarity' WHERE recipe1_id = '$recipe1_id' AND recipe2_id = '$recipe2_id'";
-			$this->db->query($sql);			
+			$sql2 = "UPDATE recipe_similarity SET similarity='$similarity' WHERE recipe1_id = '$recipe1_id' AND recipe2_id = '$recipe2_id'";
+			return mysql_query($sql2) or die(mysql_error());
 		}
 	}
 }

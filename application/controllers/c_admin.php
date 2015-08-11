@@ -157,9 +157,11 @@ class C_admin extends CI_Controller{
 				}
 				$magnitude1 = sqrt($magnitude1);
 				$data['magnitude1'] = $magnitude1;
-				echo $recipe1_id.'magnitude1 = '.$magnitude1.'<br>';
+				echo 'recipe_id = '.$recipe1_id.'<br>';
+				echo 'magnitude1 = '.$magnitude1.'<br>';
 				$magnitude2 = sqrt($magnitude2);
-				echo $recipe2_id.'magnitude2 = '.$magnitude2.'<br>';
+				echo 'recipe_id = '.$recipe2_id.'<br>';
+				echo 'magnitude2 = '.$magnitude2.'<br>';
 				$divisor = $magnitude1*$magnitude2;
 				if($divisor == 0 ){
 					$similarity = 0;
@@ -168,7 +170,7 @@ class C_admin extends CI_Controller{
 					$similarity = $dot_product/$divisor;	
 				}
 				echo 'similarity = '.$similarity.'<br><br><br><br>';
-				$this->m_admin->insert_similarity($recipe1_id, $recipe2_id, $similarity);
+				echo $this->m_admin->insert_similarity($recipe1_id, $recipe2_id, $similarity);
 				$j++;
 			}
 			$i++;

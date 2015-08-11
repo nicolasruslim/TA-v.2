@@ -13,24 +13,29 @@
     $direkomendasikan = array();
 
     foreach ($predictions as $prediction) {
+      $produk_terlarang = false;
       if (!empty($prohibition)) {
-        if(!in_array($prediction[1], $prohibition)){
-          $dibolehkan[] = $prediction[1];
+        foreach ($prohibition as $prhb) {
+          if ($prediction[1] == $prhb['recipe_id']) {
+            $produk_terlarang = true;
+          }
+        }
+        if(!$produk_terlarang){
+          $dibolehkan[] = $prediction;
+          echo $prediction[1].'dibolehkan <Br>';
         }else{
-          foreach ($prohibition as $prhb) {
-            if ($prediction[1] == $prhb['recipe_id']) {
-              $dilarang[] = $prediction[1];
-            }
-          }      
+          $dilarang[] = $prediction;
+          echo $prediction[1].'dilarang<Br>';
         }
       }
       else{
-        $dibolehkan[] = $prediction[1];
+        $dibolehkan[] = $prediction;
+        echo $prediction[1].'dibolehkan<Br>';
       }
       if (!empty($recommendation)) {
         foreach ($recommendation as $rcmd) {
           if ($prediction[1] == $rcmd['recipe_id']) {
-            $direkomendasikan[] = $prediction[1];
+            $direkomendasikan[] = $prediction;
           }
         }
       }
@@ -38,6 +43,7 @@
   ?>
   <h1>Resep yang Mungkin Anda Suka</h1>
   <?php 
+    $mae=0;
     if (!empty($dibolehkan)) {
       $i = 0;
       foreach ($dibolehkan as $boleh) {
@@ -46,7 +52,7 @@
           break;
         }
         foreach ($recipes as $recipe) {
-          if($recipe['recipe_id'] == $boleh){
+          if($recipe['recipe_id'] == $boleh[1]){
             echo $recipe['recipe_id'];
             $image = $recipe['recipe_image'];
   ?>
@@ -54,10 +60,17 @@
             <h4><?php echo $recipe['recipe_name']; ?> </h4>
             <p><?php echo $recipe['recipe_description']; ?> </p>
   <?php 
+            foreach ($rating_test as $test) {
+              if ($test->recipe_id == $boleh[1]) {
+                $mae = $mae + abs($boleh[2]-$test->rating);
+              }
+            }
             $i++;
           }
         }
       }
+      $mae = $mae/5;
+      echo 'Mean Absolute Error = '.$mae;
     }
     else{
       echo "Tidak ada rekomendasi resep yang sesuai";
@@ -73,7 +86,7 @@
           break;
         }
         foreach ($recipes as $recipe) {
-          if($recipe['recipe_id'] == $rekomendasi){
+          if($recipe['recipe_id'] == $rekomendasi[1]){
             $image = $recipe['recipe_image'];
   ?>
             <img width="300px" height="300px" src="<?php echo base_url().'assets/images/recipes/'.$image.'.jpg';?>" class="img-responsive">
